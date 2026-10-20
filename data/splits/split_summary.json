@@ -1,0 +1,59 @@
+{
+  "dataset": "data/class_dataset.csv",
+  "group_col": "id",
+  "label_col": "label",
+  "seed": 311,
+  "requested_sizes": {
+    "test": 0.15,
+    "val": 0.15
+  },
+  "n_rows": 870,
+  "n_groups": 290,
+  "splits": {
+    "train": {
+      "groups": 202,
+      "rows": 606,
+      "rows_per_class": {
+        "Baseball": 202,
+        "Basketball": 202,
+        "Soccer": 202
+      },
+      "rows_per_group": {
+        "min": 3,
+        "max": 3
+      },
+      "ids_sha256": "d6d6c1027ea32394c64fc679b11147127dbf7e840d1f040c23af0e4e5939c622",
+      "fraction_of_groups": 0.6966
+    },
+    "val": {
+      "groups": 44,
+      "rows": 132,
+      "rows_per_class": {
+        "Baseball": 44,
+        "Basketball": 44,
+        "Soccer": 44
+      },
+      "rows_per_group": {
+        "min": 3,
+        "max": 3
+      },
+      "ids_sha256": "478ec703d9cbe2205fb504544f74ab8d89b49f287cb1f0cef779b858b8f4a3c1",
+      "fraction_of_groups": 0.1517
+    },
+    "test": {
+      "groups": 44,
+      "rows": 132,
+      "rows_per_class": {
+        "Baseball": 44,
+        "Basketball": 44,
+        "Soccer": 44
+      },
+      "rows_per_group": {
+        "min": 3,
+        "max": 3
+      },
+      "ids_sha256": "64909ec296f070754b762a3558b6ef10638203ca8e54015ce30409781f9049ac",
+      "fraction_of_groups": 0.1517
+    }
+  }
+}

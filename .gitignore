@@ -1,0 +1,175 @@
+# ============================================================================
+# .gitignore —— CSC311 project
+# 本项目模型都很小（sklearn 级别，几百 KB），所以「训练产物/缓存/日志」一律忽略，
+# 但小模型文件本身允许提交（见文末说明）。
+# ============================================================================
+
+# ---------------------------------------------------------------- Python ----
+# 字节码 / 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# 虚拟环境 / conda 环境（环境用 conda csc311，不要提交）
+.venv/
+venv/
+env/
+ENV/
+.conda/
+__pypackages__/
+pip-wheel-metadata/
+
+# 打包 / 构建 / 安装
+build/
+dist/
+*.egg-info/
+.eggs/
+sdist/
+wheels/
+*.egg
+MANIFEST
+
+# 测试 / 覆盖率
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+nosetests.xml
+
+# 类型检查 / 格式化缓存
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pytype/
+.pyright/
+.cache/
+
+# --------------------------------------------------------------- Jupyter ----
+.ipynb_checkpoints/
+*.ipynb~
+.virtual_documents/
+
+# ------------------------------------------------------------ 机密 / 本地 ----
+.env
+.env.*
+!.env.example
+*.env.local
+.envrc
+secrets.json
+credentials.json
+*.pem
+config.local.*
+
+# ------------------------------------------------------ 编辑器 / 操作系统 ----
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================================
+# 模型训练相关（重点）
+# ============================================================================
+
+# ---- 训练运行目录与日志（都是可重跑生成的，别进版本库） ----
+runs/
+run/
+outputs/
+output/
+logs/
+log/
+checkpoints/
+checkpoint/
+ckpt/
+experiments/
+artifacts/
+cache/
+.cache_models/
+
+# 本项目模型小，saved_models/ 允许入库（方便复现）；若里面堆积了中间的实验模型，
+# 再取消下面这行注释：
+# saved_models/
+
+# 常见训练框架的输出目录
+# Weights & Biases
+wandb/
+# MLflow
+mlruns/
+mlartifacts/
+# PyTorch Lightning
+lightning_logs/
+pytorch_lightning/
+# Keras / TensorBoard
+keras_logs/
+tensorboard/
+tensorboard_logs/
+# 超参搜索
+ray_results/
+optuna/
+
+# 训练过程文件 / 事件流 / 中间快照
+events.out.tfevents.*
+*.tfevents.*
+*.ckpt
+*.ckpt.index
+*.ckpt.data-*
+*.ckpt.meta
+*.h5
+*.hdf5
+*.keras
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.tflite
+*.pb
+*.bin
+*.ptl
+*.joblib.tmp
+*.swp.gz
+
+# 环境快照 / 大中间缓存
+*.tfrecord
+*.record
+*.lmdb
+*.sqlite3
+*.db
+
+# ---- 小模型文件：刻意「不」忽略 ----
+# 本项目的模型是 sklearn 的 LR / 树模型 / TF-IDF 向量器，体积小、方便复现，
+# 所以 *.pkl / *.joblib / *.model 默认允许提交。
+# 如果哪天模型变大或不想入库，取消下面两行注释即可：
+# *.pkl
+# *.joblib
+
+# ============================================================================
+# 数据集与生成的产物
+# ============================================================================
+
+# ---- 数据：明确「不」忽略（data/ 下的 CSV 是项目输入，必须入库） ----
+!data/
+!data/*.csv
+
+# ---- 分析/绘图产物：当前保留在版本库内（报告要用）。
+#      若改为「只提交脚本、产物本地生成」，取消下面两行注释： ----
+# analysis/out/
+# data_visualization/figures/
+
+# 图片 / 临时导出
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# 特征矩阵缓存（若以后生成 .npy/.npz/.parquet 大文件，取消注释）
+# *.npy
+# *.npz
+# *.parquet

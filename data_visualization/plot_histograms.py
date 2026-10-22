@@ -118,8 +118,7 @@ def grouped_hist(ax, positions, values_by_class, counts_by_class, annotate_pct=F
         vals = values_by_class[cls]
         offs = positions - 0.4 + width * (i + 0.5)
         bars = ax.bar(offs, vals, width=width * 0.92, color=COLORS[cls],
-                      edgecolor="white", linewidth=0.6,
-                      label=f"{cls} (n={counts_by_class[cls]})")
+                      edgecolor="white", linewidth=0.6, label=cls)
         for rect, v in zip(bars, vals):
             if v <= 0:
                 continue

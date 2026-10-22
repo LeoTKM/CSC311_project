@@ -115,8 +115,9 @@ Ten figures (01–09 plus the overview) use the same construction:
 - **every bar is labelled** with its count; for the multi-select figures the label has
   a second line with the within-class percentage (`276` / `96%`), i.e. "how many of
   that class's respondents ticked this option";
-- a **legend** gives each class and its valid `n`; a one-line **footnote** states what
-  the bar height and label mean and where the per-class tables live.
+- a **legend** names the three classes (no numbers in it); a one-line **footnote**
+  states what the bar height and label mean, how many valid answers the question has,
+  and where the per-class tables live.
 
 Grouped bars were chosen over overlapping translucent histograms because the three
 distributions of one bin then stand side by side at reading scale, and because each

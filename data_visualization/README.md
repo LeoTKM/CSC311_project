@@ -9,12 +9,12 @@ multi-select questions, the within-class percentage).
 > (606 rows / 202 `id` groups), because the split is grouped by `id` and val / test must not take
 > part in any descriptive analysis or figure.
 
-> **No tables inside the figures.** Per-class means, variances, standard deviations and the value
+> Per-class means, variances, standard deviations and the value
 > distributions are printed to the terminal by `analysis/categorical_stats.py` and written as tidy
 > CSVs under `analysis/out/train/`. The figures only keep one compact `mean:` / `variance:` line
 > (order: Soccer / Baseball / Basketball) for readability.
 
-**All text inside the figures is English.** Each title follows the format `Q<number> | <full question wording>`,
+Each title follows the format `Q<number> | <full question wording>`,
 with a second line stating the question type, for example:
 
 ```
@@ -25,7 +25,7 @@ mean: 3.83 / 2.92 / 3.85      variance: 0.85 / 1.02 / 0.82
 
 ## Written report
 
-`plotting_report.md` is a hand-written English report covering the plotting
+`plotting_report.md` is a report covering the plotting
 methods (grouped-bar histograms, the overview grid, style conventions) and the
 feature encodings used to build the figures
 (Likert ordinal scores, multi-hot options, selection counts, text normalisation,
@@ -34,7 +34,6 @@ missing-value handling, standardisation).
 ## Running
 
 ```bash
-conda activate csc311
 python data_visualization/plot_histograms.py                       # train split (default)
 # optional: different input or output location
 python data_visualization/plot_histograms.py --data data/splits/val.csv --out-dir data_visualization/figures

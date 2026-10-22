@@ -25,7 +25,7 @@ the whole team uses the exact same split).
 ## Reproducing
 
 ```bash
-conda activate csc311
+
 python analysis/make_splits.py                      # seed 311, 0.15 / 0.15
 python analysis/make_splits.py --seed 7 --test-size 0.1 --val-size 0.1
 python analysis/make_splits.py --from-manifest data/splits/id_to_split.csv   # reuse the manifest

@@ -16,8 +16,6 @@ their results to the terminal; the tables are also written as CSV.
 ## Running
 
 ```bash
-conda activate csc311
-
 python analysis/make_splits.py           # rewrite data/splits/
 python analysis/categorical_stats.py     # Likert + multi-select statistics
 python analysis/text_word_counts.py      # short-answer word counts
@@ -40,9 +38,6 @@ words to print per question).
   and Cramér's V
 - a ranking of all mapped features by Cramér's V
 
-Only effect sizes are reported. No chi-square statistic and no p values: the rows
-share a respondent (`id`), so the independence assumption behind those tests does
-not hold, and the effect sizes are what the report needs.
 
 `text_word_counts.py` prints, per question: row / blank / invalid / token counts and
 the top words with counts, share, document frequency and per-class counts.
@@ -60,7 +55,6 @@ the top words with counts, share, document frequency and per-class counts.
 
 ## Conventions
 
-- English only: no Chinese/CJK handling anywhere in the code.
 - Class order is Soccer / Baseball / Basketball.
 - CSVs are read with `keep_default_na=False`, otherwise answers such as `None` /
   `N/A` become missing values.

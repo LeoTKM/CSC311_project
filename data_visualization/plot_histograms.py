@@ -110,7 +110,8 @@ def col_by_prefix(df, prefix):
     return hits[0]
 
 
-def grouped_hist(ax, positions, values_by_class, counts_by_class, annotate_pct=False):
+def grouped_hist(ax, positions, values_by_class, counts_by_class, annotate_pct=False,
+                 label_fontsize=7):
     """One bar per (category, class); the class count is written above each bar."""
     n_cls = len(CLASS_ORDER)
     width = 0.8 / n_cls
@@ -126,7 +127,7 @@ def grouped_hist(ax, positions, values_by_class, counts_by_class, annotate_pct=F
             if annotate_pct and counts_by_class[cls]:
                 txt += f"\n{100 * v / counts_by_class[cls]:.0f}%"
             ax.annotate(txt, (rect.get_x() + rect.get_width() / 2, v),
-                        ha="center", va="bottom", fontsize=7, linespacing=1.0)
+                        ha="center", va="bottom", fontsize=label_fontsize, linespacing=1.0)
     ax.set_ylabel("Number of respondents (count)")
     return max((max(v) if len(v) else 0) for v in values_by_class.values())
 
@@ -243,6 +244,19 @@ def plot_multi(df, spec, out_path):
     plt.close(fig)
 
 
+def option_values(df, spec):
+    """Counts of respondents who selected each option, per class."""
+    q, question, n_opt, vocab = spec
+    col = col_by_prefix(df, question[:45])
+    raw = df[col].astype(str).str.strip().replace("", np.nan)
+    toks = tokens_of(raw)
+    valid = raw.notna()
+    counts = {c: int(((df.label == c) & valid).sum()) for c in CLASS_ORDER}
+    values = {c: [int(toks[(df.label == c) & valid].map(lambda s, o=o: o in s).sum())
+                  for o, _ in vocab] for c in CLASS_ORDER}
+    return values, counts, vocab
+
+
 def count_values(df, spec):
     q, question, n_opt, vocab = spec
     col = col_by_prefix(df, question[:45])
@@ -278,8 +292,8 @@ def plot_count_feature(df, spec, out_path):
     plt.close(fig)
 
 
-def plot_overview(df, single_vals, count_vals, out_path):
-    fig, axes = plt.subplots(2, 3, figsize=(16.0, 10.2))
+def plot_overview(df, single_vals, multi_vals, out_path):
+    fig, axes = plt.subplots(2, 3, figsize=(16.0, 10.4))
 
     for ax, (spec, values, counts) in zip(axes[0], single_vals):
         q, question, kind = spec
@@ -295,15 +309,17 @@ def plot_overview(df, single_vals, count_vals, out_path):
                      f"mean: {mean_s}\nvariance: {var_s}", fontsize=7.8)
         finish(ax, max(max(v) for v in values.values()), legend=False, title_pad=8)
 
-    for ax, (spec, values, counts, n_opt) in zip(axes[1], count_vals):
-        q, question, _, _ = spec
-        positions = np.arange(0, n_opt + 1)
-        grouped_hist(ax, positions, values, counts)
+    for ax, (spec, values, counts, vocab) in zip(axes[1], multi_vals):
+        q, question, n_opt, _ = spec
+        positions = np.arange(len(vocab))
+        grouped_hist(ax, positions, values, counts, label_fontsize=5.5)
         ax.set_xticks(positions)
-        ax.set_xlabel("Number of options selected", fontsize=8)
+        ax.set_xticklabels([short.replace("\n", " ") for _, short in vocab],
+                           fontsize=5.5, rotation=70, ha="right")
+        ax.set_xlabel("Option", fontsize=8)
         ax.set_ylabel("Count", fontsize=8)
         ax.set_title(f"{q} | {wrap(question, 44)}\n"
-                     f"Multi-select, count feature (0-{n_opt})", fontsize=7.5)
+                     f"Multi-select, {n_opt} options", fontsize=7.5)
         finish(ax, max(max(v) for v in values.values()), legend=False, title_pad=8)
 
     handles, labels = axes[0][0].get_legend_handles_labels()
@@ -311,8 +327,8 @@ def plot_overview(df, single_vals, count_vals, out_path):
                fontsize=11, bbox_to_anchor=(0.5, 0.005))
     fig.suptitle("Categorical questions: distribution of each feature by class "
                  "(Soccer / Baseball / Basketball)\n"
-                 "top row titles also give the mean and variance in the order "
-                 "Soccer / Baseball / Basketball", fontsize=12)
+                 "top row: single-choice levels (with mean and variance)   |   "
+                 "bottom row: multi-select options", fontsize=12)
     fig.tight_layout(rect=(0, 0.045, 1, 0.95))
     save(fig, out_path, dpi=170)
     plt.close(fig)
@@ -349,21 +365,22 @@ def main():
         plot_single(df, spec, path)
         print(f"  wrote {path}")
 
-    count_vals = []
+    multi_vals = []
     for j, spec in enumerate(MULTI_SPECS, 4):
         q = spec[0]
         path = os.path.join(args.out_dir, f"{j:02d}_multi_{q}.png")
         plot_multi(df, spec, path)
         print(f"  wrote {path}")
 
-        values, counts, n_opt = count_values(df, spec)
-        count_vals.append((spec, values, counts, n_opt))
+        values, counts, vocab = option_values(df, spec)
+        multi_vals.append((spec, values, counts, vocab))
+
         p = os.path.join(args.out_dir, f"{j + 3:02d}_count_{q}.png")
         plot_count_feature(df, spec, p)
         print(f"  wrote {p}")
 
     overview = os.path.join(args.out_dir, "00_overview.png")
-    plot_overview(df, single_vals, count_vals, overview)
+    plot_overview(df, single_vals, multi_vals, overview)
     print(f"  wrote {overview}")
 
 

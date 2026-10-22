@@ -45,7 +45,7 @@ Dependencies: `pandas`, `matplotlib`, `Pillow` (all present in the `csc311` envi
 
 | File | Content |
 |---|---|
-| `figures/00_overview.png` | Overview: top row = the 3 single-choice questions on their 5 levels; bottom row = the 3 multi-select questions' "number of options selected" |
+| `figures/00_overview.png` | Overview: top row = the 3 single-choice questions on their 5 levels; bottom row = the 3 multi-select questions' option distributions (7 / 4 / 10 options) |
 | `figures/01_single_Q2.png` | Q2 strategy dependence: 5-level ordinal distribution (grouped by class) |
 | `figures/02_single_Q3.png` | Q3 injury risk: 5-level ordinal distribution (grouped by class) |
 | `figures/03_single_Q4.png` | Q4 individual brilliance: 5-level ordinal distribution (grouped by class) |

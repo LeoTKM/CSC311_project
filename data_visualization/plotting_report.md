@@ -131,11 +131,12 @@ they show raw counts only.
 ### 3.2 Overview figure
 
 `00_overview.png` is a 2 × 3 grid: the top row repeats the three single-choice
-histograms (5 levels each), the bottom row shows the three "number of options
-selected" distributions. It is a one-glance summary; because the panels are small,
-the single-choice panels carry per-class mean and variance as two extra title lines
-instead of a per-bar block, and one shared legend is placed under the figure. The
-bottom row shows counts only.
+histograms (5 levels each), the bottom row shows the three multi-select option
+distributions (7 / 4 / 10 options). It is a one-glance summary of all six categorical
+questions; because the panels are small, the single-choice panels carry per-class
+mean and variance as two extra title lines instead of a per-bar block, the option
+labels of the bottom row are rotated, and one shared legend is placed under the
+figure.
 
 ### 3.3 Style conventions
 

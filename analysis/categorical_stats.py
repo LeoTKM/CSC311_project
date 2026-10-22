@@ -106,7 +106,11 @@ def single_choice_stats(df, classes):
 
 
 def multi_select_stats(df, classes, ranking):
-    """Per-option statistics of the three checkbox questions (+ selection count)."""
+    """Per-option counts of the three checkbox questions (+ selection-count distribution).
+
+    No mean and no variance: for a 0/1 indicator the variance is fully determined by
+    the mean, so only the raw counts are reported.
+    """
     results, rows, count_rows = [], [], []
     labs = df["label"]
 
@@ -115,80 +119,63 @@ def multi_select_stats(df, classes, ranking):
         raw = df[col].astype(str).str.strip().replace("", np.nan)
         tokens = raw.map(lambda s: {t.strip() for t in s.split(",")} if isinstance(s, str) else set())
         valid_mask = raw.notna()
-        if int(valid_mask.sum()) == 0:
+        n_all = int(valid_mask.sum())
+        if n_all == 0:
             continue
         question = f"{q} {name}"
+        n_by_class = {c: int((labs[valid_mask] == c).sum()) for c in classes}
 
+        # derived feature: how many options each respondent selected -> count distribution
         cnt = tokens[valid_mask].map(len)
         cnt_by_class = {c: cnt[labs[valid_mask] == c].values for c in classes}
-        n_all, mu, var, sd = describe(cnt.values)
-        eta2 = eta_sq(list(cnt_by_class.values()))
-        ranking.append((f"{question} #selected", np.sqrt(eta2), eta2, "count"))
+        max_cnt = int(max((len(s) for s in tokens[valid_mask]), default=0))
+        values = list(range(max_cnt + 1))
+        dist = {c: [int((cnt_by_class[c] == k).sum()) for k in values] for c in classes}
 
         blank, invalid, valid_n, examples = feature_quality(df, prefix, "multi", vocab)
 
         count_feature = {
-            "n": n_all, "mean": mu, "var": var, "sd": sd,
-            "by_class": {c: {"n": describe(cnt_by_class[c])[0],
-                             "mean": describe(cnt_by_class[c])[1],
-                             "var": describe(cnt_by_class[c])[2]} for c in classes},
-            "eta2": eta2,
+            "n": n_all,
+            "values": values,
+            "dist": dist,
+            "by_class": {c: {"n": n_by_class[c]} for c in classes},
         }
 
         options = []
         for opt in vocab:
             ind = tokens[valid_mask].map(lambda s: 1 if opt in s else 0)
-            by_class = {c: ind[labs[valid_mask] == c].values for c in classes}
-            n_o, mu_o, var_o, sd_o = describe(ind.values)
-            table = [[int(sum(by_class[c])), int(len(by_class[c]) - sum(by_class[c]))] for c in classes]
-            table = [list(x) for x in zip(*table)]
+            sel_by_class = {c: int(ind[labs[valid_mask] == c].sum()) for c in classes}
+            selected = int(sum(sel_by_class.values()))
+            table = [[sel_by_class[c] for c in classes],
+                     [n_by_class[c] - sel_by_class[c] for c in classes]]
             v = cramers_v(table)
             ranking.append((f"{question} - {opt}", v, np.nan, "indicator"))
 
             options.append({
-                "option": opt, "n": n_o, "rate": mu_o, "var": var_o, "sd": sd_o,
-                "by_class": {c: {"n": describe(by_class[c])[0],
-                                 "rate": describe(by_class[c])[1],
-                                 "var": describe(by_class[c])[2]} for c in classes},
+                "option": opt,
+                "n": n_all,
+                "selected": selected,
+                "selected_by_class": sel_by_class,
+                "n_by_class": n_by_class,
                 "cramers_v": v,
             })
-            rows.append(dict(question=question, kind="multi_indicator", option=opt, class_="ALL",
-                             n=n_o, rate=mu_o, var=var_o, sd=sd_o, cramers_v=v,
-                             **{f"rate_{c}": describe(by_class[c])[1] for c in classes},
-                             **{f"var_{c}": describe(by_class[c])[2] for c in classes},
-                             **{f"n_{c}": describe(by_class[c])[0] for c in classes}))
+            rows.append(dict(question=question, kind="multi_indicator", option=opt,
+                             n=n_all, selected=selected,
+                             **{f"selected_{c}": sel_by_class[c] for c in classes},
+                             **{f"n_{c}": n_by_class[c] for c in classes},
+                             cramers_v=v))
 
-        season_supplement = None
-        if "season" in name:
-            idx = {c: [] for c in classes}
-            for _, r in df.iterrows():
-                s = str(r[col]).strip()
-                if not s:
-                    continue
-                for t in {x.strip() for x in s.split(",") if x.strip()}:
-                    if t in SEASON_INDEX:
-                        idx[r["label"]].append(SEASON_INDEX[t])
-            allv = [v for c in classes for v in idx[c]]
-            n_s, mu_s, var_s, _ = describe(allv)
-            season_supplement = {
-                "n": n_s, "mean": mu_s, "var": var_s,
-                "by_class": {c: {"mean": describe(idx[c])[1], "var": describe(idx[c])[2]}
-                             for c in classes},
-                "eta2": eta_sq([idx[c] for c in classes]),
-            }
+        for k in values:
+            count_rows.append(dict(question=question, feature="selection_count", value=k,
+                                   n_total=sum(dist[c][k] for c in classes),
+                                   **{f"n_{c}": dist[c][k] for c in classes}))
 
         results.append({
             "question": question, "column": col, "n": n_all,
             "quality": {"blank": blank, "invalid": invalid, "valid": valid_n,
                         "examples": examples},
             "count": count_feature, "options": options,
-            "season_supplement": season_supplement,
         })
-
-        count_rows.append(dict(question=question, feature="selection_count", n=n_all,
-                               mean=mu, var=var, sd=sd, eta2=eta2,
-                               **{f"mean_{c}": describe(cnt_by_class[c])[1] for c in classes},
-                               **{f"var_{c}": describe(cnt_by_class[c])[2] for c in classes}))
 
     return results, rows, count_rows
 
@@ -234,21 +221,15 @@ def print_result(result):
     for m in result["multi"]:
         c = m["count"]
         print(f"\n{m['question']}")
-        print(f"  count n={c['n']} mean={fmt(c['mean'])} var={fmt(c['var'])} "
-              f"sd={fmt(c['sd'])} eta2={fmt(c['eta2'])}")
-        print("  " + " | ".join(
-            f"{cl} n={c['by_class'][cl]['n']} mean={fmt(c['by_class'][cl]['mean'])} "
-            f"var={fmt(c['by_class'][cl]['var'])}" for cl in classes))
+        print(f"  n={c['n']}  " + " ".join(f"{cl} n={c['by_class'][cl]['n']}" for cl in classes))
+        dist = "  ".join(
+            f"{v}=" + "/".join(str(c["dist"][cl][i]) for cl in classes)
+            for i, v in enumerate(c["values"]))
+        print(f"  #selected {dist}")
         for o in m["options"]:
-            print(f"  {o['option']:<34} rate={fmt(o['rate'])}  " +
-                  " ".join(f"{cl}={fmt(o['by_class'][cl]['rate'])}" for cl in classes) +
-                  "  var=" + "/".join(fmt(o["by_class"][cl]["var"]) for cl in classes) +
+            print(f"  {o['option']:<34} selected={o['selected']:<4} " +
+                  " ".join(f"{cl}={o['selected_by_class'][cl]}" for cl in classes) +
                   f"  V={fmt(o['cramers_v'])}")
-        sup = m.get("season_supplement")
-        if sup:
-            print(f"  season index mean={fmt(sup['mean'])} var={fmt(sup['var'])} "
-                  f"eta2={fmt(sup['eta2'])}  " +
-                  " ".join(f"{cl}={fmt(sup['by_class'][cl]['mean'])}" for cl in classes))
 
     clean = [r for r in result["ranking"] if r[1] == r[1]]
     clean.sort(key=lambda r: -r[1])

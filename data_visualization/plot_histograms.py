@@ -236,8 +236,8 @@ def plot_multi(df, spec, out_path):
     finish(ax, ymax)
 
     fig.text(0.5, 0.012,
-             f"Each option is a 0/1 variable (selected = 1); its variance = n/(n-1)*p*(1-p), "
-             f"fixed by the mean.  n = {n_all} valid answers ({len(df) - n_all} missing).  "
+             f"Bar height = number of respondents in that class who selected the option.  "
+             f"n = {n_all} valid answers ({len(df) - n_all} missing).  "
              f"Per-class tables: analysis/out/train/*.csv (see analysis/categorical_stats.py)",
              ha="center", fontsize=8, color="#555")
     save(fig, out_path)
@@ -259,7 +259,6 @@ def count_values(df, spec):
 def plot_count_feature(df, spec, out_path):
     q, question, n_opt, _ = spec
     values, counts, n_opt = count_values(df, spec)
-    mean_s, var_s = compact_stats(values, 0)
 
     fig, ax = plt.subplots(figsize=(9.8, 6.4))
     positions = np.arange(0, n_opt + 1)
@@ -267,9 +266,7 @@ def plot_count_feature(df, spec, out_path):
     ax.set_xticks(positions)
     ax.set_xlabel(f"Number of options selected by the respondent (0-{n_opt})", fontsize=9.5)
     ax.set_title(f"{q} | {wrap(question, 66)}   (number of options selected)\n"
-                 f"Multi-select, {n_opt} options, derived count feature   |   "
-                 f"Soccer / Baseball / Basketball\n"
-                 f"mean: {mean_s}      variance: {var_s}", fontsize=10.5)
+                 f"Multi-select, {n_opt} options, derived count feature", fontsize=10.5)
     finish(ax, ymax)
 
     fig.text(0.5, 0.012,
@@ -306,10 +303,8 @@ def plot_overview(df, single_vals, count_vals, out_path):
         ax.set_xticks(positions)
         ax.set_xlabel("Number of options selected", fontsize=8)
         ax.set_ylabel("Count", fontsize=8)
-        mean_s, var_s = compact_stats(values, 0)
         ax.set_title(f"{q} | {wrap(question, 44)}\n"
-                     f"Multi-select, count feature (0-{n_opt})\n"
-                     f"mean: {mean_s}\nvariance: {var_s}", fontsize=7.5)
+                     f"Multi-select, count feature (0-{n_opt})", fontsize=7.5)
         finish(ax, max(max(v) for v in values.values()), legend=False, title_pad=8)
 
     handles, labels = axes[0][0].get_legend_handles_labels()
@@ -317,7 +312,7 @@ def plot_overview(df, single_vals, count_vals, out_path):
                fontsize=11, bbox_to_anchor=(0.5, 0.005))
     fig.suptitle("Categorical questions: distribution of each feature by class "
                  "(Soccer / Baseball / Basketball)\n"
-                 "in the title of each panel: mean and variance in the order "
+                 "top row titles also give the mean and variance in the order "
                  "Soccer / Baseball / Basketball", fontsize=12)
     fig.tight_layout(rect=(0, 0.045, 1, 0.95))
     save(fig, out_path, dpi=170)

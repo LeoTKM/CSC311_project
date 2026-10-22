@@ -23,7 +23,7 @@ def write_categorical_tables(result, out_dir):
         paths["multi"] = os.path.join(out_dir, "multi_select_stats.csv")
         multi_df.to_csv(paths["multi"], index=False, encoding="utf-8")
 
-    paths["count"] = os.path.join(out_dir, "selection_count_stats.csv")
+    paths["count"] = os.path.join(out_dir, "selection_count_distribution.csv")
     pd.DataFrame(result["count_rows"]).to_csv(paths["count"], index=False, encoding="utf-8")
     return paths
 

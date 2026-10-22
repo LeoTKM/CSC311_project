@@ -33,9 +33,11 @@ words to print per question).
 - the data-quality counts per feature (blank / invalid / valid)
 - per single-choice question: n, mean, variance, sd (overall and per class),
   Cramér's V, eta², and the 5-level counts (Soccer/Baseball/Basketball)
-- per multi-select question: the "number of options selected" statistics, then one
-  line per option with its selection rate, per-class rates, per-class variances
-  and Cramér's V
+- per multi-select question: the distribution of the "number of options selected",
+  then one line per option with the count of respondents who selected it (overall and
+  per class) and Cramér's V. No mean and no variance for multi-select: for a 0/1
+  indicator the variance is fully determined by the mean, so only raw counts are
+  reported
 - a ranking of all mapped features by Cramér's V
 
 
@@ -47,8 +49,8 @@ the top words with counts, share, document frequency and per-class counts.
 | File | Content |
 |---|---|
 | `single_choice_stats.csv` | Per-class statistics of the three Likert questions |
-| `multi_select_stats.csv` | Per-option statistics of the three multi-select questions |
-| `selection_count_stats.csv` | Statistics of the "number of options selected" feature |
+| `multi_select_stats.csv` | Per-option selection counts of the three multi-select questions |
+| `selection_count_distribution.csv` | Distribution of the "number of options selected", per class |
 | `text_token_counts.csv` | Long table: question, word, count, share, document counts, per-class counts |
 | `text_token_summary.csv` | One row per question: blanks, invalids, tokens, vocabulary size |
 | `text_normalized.csv` | Per-row normalised text |

@@ -62,7 +62,10 @@ number would destroy information.
 
 An additional **count feature** ("number of options selected", one per question) is
 derived as a real number valued 0…7 / 0…4 / 0…10. It carries the *quantity* of
-selection while the multi-hot columns carry *which* options were selected.
+selection while the multi-hot columns carry *which* options were selected. For these
+questions only counts are reported because for a 0/1
+indicator the variance is fully determined by the mean, so the moments add nothing
+over the raw counts.
 
 ### 2.4 Q8–Q12 — short answers (free text)
 
@@ -119,19 +122,19 @@ Grouped bars were chosen over overlapping translucent histograms because the thr
 distributions of one bin then stand side by side at reading scale, and because each
 bar can carry its own numeric label without the labels colliding.
 
-The single-choice and count figures also carry a compact
-`mean: … variance: …` line in the title (order Soccer / Baseball / Basketball), which
-lets the reader see the summary statistics without leaving the figure. No tables are
-drawn inside the figures — the numbers live in the CSV tables and in the terminal
-output of `analysis/categorical_stats.py`.
+The single-choice figures also carry a compact `mean: … variance: …` line in the
+title (order Soccer / Baseball / Basketball), which lets the reader see the summary
+statistics without leaving the figure. The multi-select and count figures do not:
+they show raw counts only.
 
 ### 3.2 Overview figure
 
 `00_overview.png` is a 2 × 3 grid: the top row repeats the three single-choice
 histograms (5 levels each), the bottom row shows the three "number of options
 selected" distributions. It is a one-glance summary; because the panels are small,
-the per-class mean and variance are written as two extra title lines instead of a
-per-bar `mean/variance` block, and one shared legend is placed under the figure.
+the single-choice panels carry per-class mean and variance as two extra title lines
+instead of a per-bar block, and one shared legend is placed under the figure. The
+bottom row shows counts only.
 
 ### 3.3 Style conventions
 
@@ -154,7 +157,7 @@ per-bar `mean/variance` block, and one shared legend is placed under the figure.
 |---|---|
 | `01`–`03` (single choice) | Do the three distributions shift monotonically, or does one class sit in the middle? Are the means close while the shapes differ (a sign that one-hot may beat the ordinal encoding)? |
 | `04`–`06` (multi-select) | Which options are near-deterministic for one class (e.g. `Indoor facility`: Basketball 97 % vs Baseball 26 %)? Which options are flat across classes and therefore uninformative? |
-| `07`–`09` (counts) | Does one class tick many more options than the others? This is a real-valued feature and often the strongest single signal of a multi-select question. |
+| `07`–`09` (counts) | Does one class tick many more options than the others? The whole distribution is shown, per class. |
 | `00` | Overall shape of the problem in one glance. |
 
 ---

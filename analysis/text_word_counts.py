@@ -4,7 +4,7 @@ Word counts for the five short-answer questions.
 
 Normalisation: lowercase -> drop apostrophes -> repair thousands separators
 ("1,000" -> "1000") -> replace every other non-alphanumeric character with a
-space -> split on spaces.
+space -> split on spaces. "N/A" / "N.A." are kept as the single word "na".
 
 Results are printed to the terminal and written as CSV tables.
 
@@ -37,11 +37,14 @@ from survey_common import (                       # noqa: E402
 APOSTROPHES = re.compile("['\u2019`]")          # straight quote, curly quote, backtick
 THOUSANDS = re.compile(r"(?<=\d),(?=\d)")
 NON_ALNUM = re.compile(r"[^a-z0-9]+")
+# count N/A
+NO_ANSWER_WORD = re.compile(r"\bn\s*[/.]\s*a\b", re.IGNORECASE)
 
 
 def normalize(text):
     """lowercase + punctuation handling, keeping the words that carry meaning."""
     s = str(text).strip().lower()
+    s = NO_ANSWER_WORD.sub(" na ", s)   # N/A -> na (one word)
     s = APOSTROPHES.sub("", s)          # don't -> dont
     s = THOUSANDS.sub("", s)            # 1,000 -> 1000
     s = NON_ALNUM.sub(" ", s)           # punctuation -> word boundary

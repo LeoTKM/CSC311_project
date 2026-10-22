@@ -24,7 +24,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 10,Baseball,hotdog,white,take me home country roads,indifferent,100
 10,Basketball,french fries,orange,hall of fame,nervous,700
 11,Soccer,beer and fried chicken,green,we will rock you,feeling passionate,500 dollar
-11,Baseball,n a since i know nothing about it at all,n a since i know nothing about it at all,n a since i know nothing about it at all,n a since i know nothing about it at all,200
+11,Baseball,na since i know nothing about it at all,na since i know nothing about it at all,na since i know nothing about it at all,na since i know nothing about it at all,200
 11,Basketball,taco and coke,brown,,passionate,500
 12,Soccer,nachos and beer,blue,waka waka this time for africa shakira,excited,250
 12,Baseball,hot dogs and soda,red,take me out to the ball game jack norworth and albert von tilzer,intrigued,80
@@ -51,8 +51,8 @@ id,label,Q8,Q9,Q10,Q11,Q12
 24,Baseball,beer burger hot dog fries,blue,take me out to the ball game,bored really bored unattentive,nothing im not really a fan perhaps a small amount 100 max if with friends
 24,Basketball,burger beer hotdog soda,black,skrilla doot doot,comfortable amused,nothing im not really a fan perhaps a small amount 100 max if with friends
 25,Soccer,beer,green,waka waka,enjoyable,200cad
-25,Baseball,nacho,blue,n a,bored exited,150cad
-25,Basketball,pop corn,gold,n a,exited,200cad
+25,Baseball,nacho,blue,na,bored exited,150cad
+25,Basketball,pop corn,gold,na,exited,200cad
 29,Soccer,pizza chips beer and peanuts when watching with friends,green,waka waka shakira,i feel excited and tense during important matches,around 70 90
 29,Baseball,softdrink popcorns,red,take me out to the ball game,i feel relaxed,around 60
 29,Basketball,chickenwings softdrink fries,orange,remember the name,i feel engaged energetic and excited throughout the game,around 100
@@ -66,8 +66,8 @@ id,label,Q8,Q9,Q10,Q11,Q12
 34,Baseball,beer and hotdogs,dark major colours of the rainbow,none,waiting for an advertisement to finish,50
 34,Basketball,none,dark major colours of the rainbow,none,engaged,100
 35,Soccer,beer hotdogs,any,its time for africa,excited,200dollars
-35,Baseball,beer snacks,blue,n a,excited,200 dollars
-35,Basketball,any food,red,n a,thrilling,300dollars
+35,Baseball,beer snacks,blue,na,excited,200 dollars
+35,Basketball,any food,red,na,thrilling,300dollars
 36,Soccer,popcorn water and sports drinks,green,a song from the a competition in brazil but i do not remember its title,i am very interested and enjoy watching the matches,i would be willing to pay around cad 400 500 for a decent seat
 36,Baseball,popcorn water and sports drinks,brown,no particular song comes to mind,i feel fairly neutral when watching partly because i do not understand the game very well,i would be willing to pay around cad 100 for a decent seat
 36,Basketball,popcorn water and sports drinks,orange,no particular song comes to mind,i feel fairly neutral when watching partly because i do not understand the game very well,i would be willing to pay around cad 100 for a decent seat
@@ -88,7 +88,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 44,Basketball,loaded nachos chicken wings and cold beer,red,white iverson post malone,watching this sport on tv always gives me a sudden jolt of pure adrenaline sitting on my couch i find myself completely locked into the screen as the ball flies back and forth with zero room for error my heart races during those intense fast paced transitions and i cant help but lean forward every time someone drives down the lane or pulls up for a deep three pointer,5000
 47,Soccer,beer hot dog sausage,green,love me again waka waka heat waves wavin flag,excited,80
 47,Baseball,hot dogs beer,blue,ok a team in this sport take me out to the ball game,excited,40
-47,Basketball,n a,red,n a,excited,50
+47,Basketball,na,red,na,excited,50
 48,Soccer,hot dogs and soda,blue,love me again by john newman,excited if its the a competition,75
 48,Baseball,hot dogs and beer,red,none,neutral,20
 48,Basketball,hot dogs and soda,red,gods plan by drake,excited,150
@@ -117,8 +117,8 @@ id,label,Q8,Q9,Q10,Q11,Q12
 62,Baseball,beer hotdog coke peanuts chips,red,no song comes to mind,interested,60
 62,Basketball,beer hotdog coke,red,ball w o you,excited,100
 63,Soccer,pizza and cold drinks,navy,waka waka,excited,60
-63,Baseball,shawarma and cold drinks,blue,n a,curious,30
-63,Basketball,hotdog and cold drinks,orange,n a,introspective,40
+63,Baseball,shawarma and cold drinks,blue,na,curious,30
+63,Basketball,hotdog and cold drinks,orange,na,introspective,40
 64,Soccer,cola,green,dont have,cool but i dont enjoy the entire game,no willing
 64,Baseball,chips,orange,dont have,confusions,not willing
 64,Basketball,donuts,orange,dont have,cool but will be tired very quickly,not willing
@@ -161,9 +161,9 @@ id,label,Q8,Q9,Q10,Q11,Q12
 84,Soccer,for drinks soft drinks such as coca cola sprite pepsi fanta or for people at the legal age of drinking itd be beers for food hot dog pizza burgers and fries,green blue yellow red white and black,waka waka this time for africa by shakira 2010,excited nervous happy if the team im rooting for is winning sad if the team im rooting for is losing angry if the team im rooting for is losing,if its world competition 1000 3000 canadian dollars europe leagues 800 1500 canadian dollars
 84,Baseball,hot dogs and burgers for food pops and canned beers for drinks,blue white gray and red,ok a team in this sport by the bat boys released in 1983,i personally feel really bored but there a large base of dedicated fans for this sports,100 150 canadian dollars
 84,Basketball,hot dog burgers nachos pizza and popcorns pops and beers,orange black and red,kanye west and jay zs songs,excited and joyful nervous anticipation towards the end,300 500 cad
-85,Soccer,scran,green,n a,neutral,20 50
+85,Soccer,scran,green,na,neutral,20 50
 85,Baseball,peanuts,blue red,hang on sloopy,excited,50 150
-85,Basketball,pizza wings,red gold,n a,excited,40 120
+85,Basketball,pizza wings,red gold,na,excited,40 120
 86,Soccer,hotdog and pop drinks,blue,waka waka by shakira,i do not watch this sport,300
 86,Baseball,hot dog and pop drinks,blue,i do not associate a song with this sport,i do not watch this sport,300
 86,Basketball,fries and pop,red,not like us by kendrick lamar,neutral,350
@@ -193,7 +193,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 95,Basketball,buffalo wings,brown,roundball rock,passinate,200
 96,Soccer,beer,green,this time for africa,excited thrilled,200 dollars
 96,Baseball,hotdogs,brown,nothing,bored,100 dollars
-96,Basketball,,red,n a,excited,200 dollars
+96,Basketball,,red,na,excited,200 dollars
 97,Soccer,wings tacos coke pepsi,green,magic in the air,if im watching a team that i like play i feel excitement in every bone and muscle of my body there is also a feeling of satisfaction with the way the ball exchanges feet the way it is struck and the way it cuts through the grass,100 cad
 97,Baseball,popcorn soda drinks,blue,thunderstruck by ac dc,bored to some extent,30
 97,Basketball,wings soda drinks,orange,power by kanye west,exhilarating i enjoy the fast pace,100
@@ -225,7 +225,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 107,Baseball,hot dog,blue,we will rock you,bored,200
 107,Basketball,popcorn,red,we are the champions,energized,150
 108,Soccer,meatball subs hotdogs beer,white,waka waka,very bored as things happen slow and over extended periods of time,no more than 50 cad
-108,Baseball,n a,red,n a,i never watched this sport it is not at all popular in my culture,25 cad maximum
+108,Baseball,na,red,na,i never watched this sport it is not at all popular in my culture,25 cad maximum
 108,Basketball,fries hotdogs beer meatball subs,orange,timber,excited fun joyed,up to 100cad
 109,Soccer,beer bbq skewers chips wings,yellow,the nights,emotional,300
 109,Baseball,hot dog,blue,sandstorm,confused,150
@@ -276,7 +276,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 130,Baseball,hotdog,blue,ditto,interesting,200
 130,Basketball,popcorn,red and black,starboy,scared,200
 131,Soccer,fried chicken when watching sports especially this kind is always the best,green blue red yellow white,brazil by declan mckenna,fifty percent is bored because i dont really understand the details of it but when there is a move or a point scored its very exciting especially when watching with people and you have a team youre rooting for,200 but only because i dont care about the sport this much
-131,Baseball,pub food,blue and white,n a,confused most of the time because i never really learned how to play it and it feels like theres a lot of strategy going behind the scenes that makes it more confusing also how the game works is kind of confusing as well,50 100
+131,Baseball,pub food,blue and white,na,confused most of the time because i never really learned how to play it and it feels like theres a lot of strategy going behind the scenes that makes it more confusing also how the game works is kind of confusing as well,50 100
 131,Basketball,pub food,red orange warm colours,nothing in particular something with a good beat,excited when they score and somewhat interested throughout the entire game because it feels more fast paced than other sports,100 200
 135,Soccer,popcorn soda hamburger beer,green blue white,waka waka this time for africa,i dont understand what is happening,100
 135,Baseball,popcorn soda,blue white,none,confused,10
@@ -499,7 +499,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 239,Basketball,nachos,purple,a lot 21 savage,energetic,1000
 240,Soccer,beer,yellow,waka waka,excited,100
 240,Baseball,hotdogs,blue,take me out to the ball game,bored,30
-240,Basketball,pizza soda,orange,n a,detached,20
+240,Basketball,pizza soda,orange,na,detached,20
 242,Soccer,hot dog and coke,green,waka waka,neutral,100
 242,Baseball,potato chips and coke,white,supermassive black hole,confused,15
 242,Basketball,hot dog and soft drink,orange,thunder,indifferent,20
@@ -568,7 +568,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 272,Basketball,chicken tenders,red,the feeling,bored,150
 273,Soccer,american mexican cuisine sprite water,green,waka waka,enthralled captivated stressed excited it is my favourite sport,200 500 for a great game
 273,Baseball,hot dogs beer,white,take me out to the ball game,captivated stressed sometimes bored it is my 3rd favourite sport,150 250
-273,Basketball,wings water,orange,n a,excited stressed captivated analytical it is my 2nd favourite sport,150 250
+273,Basketball,wings water,orange,na,excited stressed captivated analytical it is my 2nd favourite sport,150 250
 274,Soccer,bbq beers fried chicken coke soda,black white blue green yellow red,waka waka this time for africa,excited nervous happy,50
 274,Baseball,beers popcorn peanuts,white blue black,take me out to the ball game,confused excited,50
 274,Basketball,chips coke soda,black orange white red,sirius,excited amzaed happy nervous,100
@@ -600,7 +600,7 @@ id,label,Q8,Q9,Q10,Q11,Q12
 288,Baseball,i associate processed and fast foods and snacks like chips hotdogs and burgers and i associate drinks like pop and beer with it,brown like the colour of wood,a very classic rock song like highway to hell by acdc,extremely bored,20
 288,Basketball,i associate sugary drinks like sodas and gatorade in particular i associate foods like chips and sugary snacks like maynards or skittles,red,i think of drake song like headlines,very happy and immersed,500
 289,Soccer,food fish and chips hamburger snacks coke to drink,red,waka waka shakira,very motivated united and energetized,around 300cad
-289,Baseball,drink coke eat snack,white,n a,i dont watch it so i dont really know,100cad
+289,Baseball,drink coke eat snack,white,na,i dont watch it so i dont really know,100cad
 289,Basketball,drink coke do not eat,blue yellow red,cheerleading songs,really motivating and captivating,200cad
 290,Soccer,beer chicken wings fries popcorn chips coke,blue,a competition by ishowspeed,bored,under 100
 290,Baseball,poutine chicken wings fries popcorn hot dog,blue,ok a team in this sport,mildly excited,250

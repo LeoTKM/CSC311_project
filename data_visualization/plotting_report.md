@@ -78,7 +78,8 @@ These are counted as words, not yet turned into model features. Normalisation:
    commas) with a space, then split on spaces.
 
 So `Hot dog, soda` → `hot dog soda`, `$1,000` → `1000`, `Hip-hop or rap` →
-`hip hop or rap`, `N/A` → `n a`. Because step 4 only keeps `[a-z0-9]`, any
+`hip hop or rap`, `N/A` → `na` (an
+`N/A` answer counts as one word, not as the two tokens `n` and `a`). Because step 4 only keeps `[a-z0-9]`, any
 non-Latin character also acts as a word boundary. Single-character tokens are kept
 by default (`--min-len 1`).
 

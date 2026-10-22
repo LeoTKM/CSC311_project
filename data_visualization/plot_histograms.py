@@ -2,23 +2,13 @@
 """
 Histograms of the categorical survey columns, grouped by the 3 label classes.
 
-Every figure answers one question: "for this feature, how is each of the three
-classes (Soccer / Baseball / Basketball) distributed?"  Concretely:
-
-  * single-choice Likert -> discrete histogram over the 5 levels, one bar per
-    (level, class) with the class count written on the bar
-  * multi-select option  -> discrete histogram of the 0/1 indicator, one bar
-    per (option, class) with "count (within-class %)" written on the bar
-  * "number of options selected" -> discrete histogram over 0..N, per class
-
 The default input is the TRAIN split (data/splits/train.csv). With the
 `id`-grouped splits in place, figures that describe the data must be drawn from
 train only, so val/test cannot leak into the picture.
 
 Outputs (PNG) into data_visualization/figures/ by default.
 
-Usage (conda env csc311):
-    conda activate csc311
+Usage:
     python data_visualization/plot_histograms.py                         # train split
     python data_visualization/plot_histograms.py --data data/splits/val.csv
     python data_visualization/plot_histograms.py --out-dir data_visualization/figures
@@ -35,7 +25,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# ------------------------------------------------------------------ config ---
 
 CLASS_ORDER = ["Soccer", "Baseball", "Basketball"]
 COLORS = {"Soccer": "#2ca02c", "Baseball": "#1f77b4", "Basketball": "#ff7f0e"}
@@ -158,7 +147,6 @@ def save(fig, out_path, dpi=200):
     fig.savefig(out_path, dpi=dpi, bbox_inches="tight", pad_inches=0.15)
 
 
-# -------------------------------------------------------------- statistics ---
 
 def weighted_moments(values, lo):
     """Sample mean / variance / sd of a discrete score given per-level counts."""
@@ -184,7 +172,6 @@ def compact_stats(values, lo):
     return " / ".join(means), " / ".join(vars_)
 
 
-# ------------------------------------------------------- single choice plot ---
 
 def plot_single(df, spec, out_path):
     q, question, kind = spec
@@ -214,13 +201,12 @@ def plot_single(df, spec, out_path):
     fig.text(0.5, 0.012,
              f"Bar height = count in that class; label on bar = count.  "
              f"n = {n_all} valid answers ({missing} missing).  "
-             f"Per-class tables: analysis/out/train/report_single_multi.md",
+             f"Per-class tables: analysis/out/train/*.csv (see analysis/categorical_stats.py)",
              ha="center", fontsize=8, color="#555")
     save(fig, out_path)
     plt.close(fig)
 
 
-# -------------------------------------------------------- multi select plot ---
 
 def tokens_of(series):
     return series.map(lambda s: {t.strip() for t in str(s).split(",")} if str(s).strip() else set())
@@ -252,7 +238,7 @@ def plot_multi(df, spec, out_path):
     fig.text(0.5, 0.012,
              f"Each option is a 0/1 variable (selected = 1); its variance = n/(n-1)*p*(1-p), "
              f"fixed by the mean.  n = {n_all} valid answers ({len(df) - n_all} missing).  "
-             f"Per-class tables: analysis/out/train/report_single_multi.md",
+             f"Per-class tables: analysis/out/train/*.csv (see analysis/categorical_stats.py)",
              ha="center", fontsize=8, color="#555")
     save(fig, out_path)
     plt.close(fig)
@@ -290,7 +276,7 @@ def plot_count_feature(df, spec, out_path):
              "0 = no option selected (includes blank answers).  "
              f"n = {sum(counts.values())} valid answers "
              f"({len(df) - sum(counts.values())} missing).  "
-             f"Per-class tables: analysis/out/train/report_single_multi.md",
+             f"Per-class tables: analysis/out/train/*.csv (see analysis/categorical_stats.py)",
              ha="center", fontsize=8, color="#555")
     save(fig, out_path)
     plt.close(fig)

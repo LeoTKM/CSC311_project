@@ -1,16 +1,21 @@
 # data_visualization
 
-所有图表由 `plot_histograms.py` 生成，输出到 `figures/`。图表内容：**train 集里每一项特征在 3 个类
-（Soccer / Baseball / Basketball）内部的分布**，以分组直方图表示，每根柱子上标出该类人数（多选题还标类内占比）。
+All figures are produced by `plot_histograms.py` and written to `figures/`. Each figure shows
+**how each of the 3 classes (Soccer / Baseball / Basketball) is distributed on one feature of the
+train split**, as a grouped histogram where every bar is labelled with the class count (and, for
+multi-select questions, the within-class percentage).
 
-> **数据口径：只用 train 集。** 脚本默认读 `data/splits/train.csv`（606 行 / 202 个 `id`）。
-> 因为切分是按 `id` 分组的，val 和 test 不能参与任何描述性分析或画图。
+> **Data policy: train split only.** The script defaults to `data/splits/train.csv`
+> (606 rows / 202 `id` groups), because the split is grouped by `id` and val / test must not take
+> part in any descriptive analysis or figure.
 
-> **图上不放表格。** 逐类的均值、方差、标准差以及各类取值分布等统计结果全部放在 markdown 里：
-> `analysis/out/train/report_single_multi.md`（train 集，含数据切分说明）。
-> 图上只保留一行紧凑的 `mean:` / `variance:`（顺序为 Soccer / Baseball / Basketball）方便读图。
+> **No tables inside the figures.** Per-class means, variances, standard deviations and the value
+> distributions are printed to the terminal by `analysis/categorical_stats.py` and written as tidy
+> CSVs under `analysis/out/train/`. The figures only keep one compact `mean:` / `variance:` line
+> (order: Soccer / Baseball / Basketball) for readability.
 
-**图内所有文字为英文。** 每张图的标题格式为 `Q编号 | 完整题干`，第二行给出题型，例如：
+**All text inside the figures is English.** Each title follows the format `Q<number> | <full question wording>`,
+with a second line stating the question type, for example:
 
 ```
 Q3 | Players must be comfortable with a high risk of injury.
@@ -18,46 +23,57 @@ Single choice, Likert 1-5 (ordinal score 1-5)   |   Soccer / Baseball / Basketba
 mean: 3.83 / 2.92 / 3.85      variance: 0.85 / 1.02 / 0.82
 ```
 
-## 运行
+## Written report
+
+`plotting_report.md` is a hand-written English report covering the plotting
+methods (grouped-bar histograms, the overview grid, style conventions) and the
+feature encodings used to build the figures
+(Likert ordinal scores, multi-hot options, selection counts, text normalisation,
+missing-value handling, standardisation).
+
+## Running
 
 ```bash
 conda activate csc311
-python data_visualization/plot_histograms.py                       # 默认 train 集
-# 可选：换数据或输出位置
+python data_visualization/plot_histograms.py                       # train split (default)
+# optional: different input or output location
 python data_visualization/plot_histograms.py --data data/splits/val.csv --out-dir data_visualization/figures
 ```
 
-依赖：`pandas`、`matplotlib`、`Pillow`（均已在 `csc311` 环境中）。
+Dependencies: `pandas`, `matplotlib`, `Pillow` (all present in the `csc311` environment).
 
-## 图文件
+## Figure files
 
-| 文件 | 内容 |
+| File | Content |
 |---|---|
-| `figures/00_overview.png` | 总览：上排 3 道单选题的 5 级直方图，下排 3 道多选题的「勾选个数」直方图 |
-| `figures/01_single_Q2.png` | Q2 策略与规划：5 级序数分布（三类分组） |
-| `figures/02_single_Q3.png` | Q3 受伤风险：5 级序数分布（三类分组） |
-| `figures/03_single_Q4.png` | Q4 个人能力胜团队：5 级序数分布（三类分组） |
-| `figures/04_multi_Q5.png` | Q5 场地：7 个选项被三类各自勾选的人数与类内占比 |
-| `figures/05_multi_Q6.png` | Q6 季节：4 个选项 |
-| `figures/06_multi_Q7.png` | Q7 音乐类型：10 个选项 |
-| `figures/07_count_Q5.png` | Q5 场地勾选个数（0–7）的分布 |
-| `figures/08_count_Q6.png` | Q6 季节勾选个数（0–4）的分布 |
-| `figures/09_count_Q7.png` | Q7 音乐类型勾选个数（0–10）的分布 |
+| `figures/00_overview.png` | Overview: top row = the 3 single-choice questions on their 5 levels; bottom row = the 3 multi-select questions' "number of options selected" |
+| `figures/01_single_Q2.png` | Q2 strategy dependence: 5-level ordinal distribution (grouped by class) |
+| `figures/02_single_Q3.png` | Q3 injury risk: 5-level ordinal distribution (grouped by class) |
+| `figures/03_single_Q4.png` | Q4 individual brilliance: 5-level ordinal distribution (grouped by class) |
+| `figures/04_multi_Q5.png` | Q5 venue: how many respondents of each class ticked each of the 7 options, plus within-class share |
+| `figures/05_multi_Q6.png` | Q6 season: 4 options |
+| `figures/06_multi_Q7.png` | Q7 music type: 10 options |
+| `figures/07_count_Q5.png` | Q5 venue: distribution of the number of options selected (0-7) |
+| `figures/08_count_Q6.png` | Q6 season: distribution of the number of options selected (0-4) |
+| `figures/09_count_Q7.png` | Q7 music type: distribution of the number of options selected (0-10) |
 
-## 编码口径
+## Encoding conventions
 
-- 单选题 Likert → 序数 1–5：`Strongly disagree=1, Disagree=2, Neutral=3, Agree=4, Strongly agree=5`
-- 多选题 → 每个选项一个 0/1 变量（勾选=1），柱高=该类别中勾选此项的人数
-- 多选题的 0/1 变量方差 = `n/(n-1)·p·(1-p)`，由均值决定，图上脚注已注明
-- 空回答在统计时剔除，各类实际 n 标在图例中
-- 读入 CSV 使用 `keep_default_na=False`：否则真实回答 `None` / `N/A` 会被 pandas 当成缺失值
+- Single choice (Likert) -> ordinal 1-5: `Strongly disagree=1, Disagree=2, Neutral=3, Agree=4, Strongly agree=5`
+- Multi-select -> one 0/1 variable per option (ticked = 1); bar height = number of respondents in that class who ticked it
+- For a 0/1 variable the variance is `n/(n-1)*p*(1-p)`, i.e. fully determined by the mean; the figure footnote says so
+- Blank answers are excluded from the statistics; the actual per-class n is shown in the legend
+- The CSVs are read with `keep_default_na=False`; otherwise real answers such as `None` / `N/A` would be treated as missing
 
-## 配套的 markdown 统计
+## Companion statistics
 
-`analysis/categorical_stats.py` 生成 `analysis/out/train/report_single_multi.md`，包含：
+`analysis/categorical_stats.py` prints, to the terminal, the dataset split, a data-quality table
+(blank / invalid / valid for all 12 features), per-class `n / mean / variance / sd` with the
+5-level distribution for every single-choice question, per-class selection rates and variances
+with chi-square and Cramér's V for every multi-select option, and a feature ranking by effect size.
+The same numbers are written as tidy CSVs (`single_choice_stats.csv`, `multi_select_stats.csv`,
+`selection_count_stats.csv`) under `analysis/out/train/`.
 
-- 数据切分说明（train / val / test 各自行数、分组数、占比、切分方式）
-- 每道单选题的逐类 `n / 均值 / 方差 / 标准差` 与 5 级取值分布
-- 每个多选题选项 × 每一类的勾选率与方差、χ²、Cramér's V
-- 「勾选个数」特征的逐类统计
-- 按效应量（Cramér's V / η²）排序的特征重要性表
+Word-level statistics for the five short-answer questions (also train-only) are printed by
+`analysis/text_word_counts.py`, with the tables written to `text_token_counts.csv`,
+`text_token_summary.csv` and `text_normalized.csv`.

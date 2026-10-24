@@ -4,7 +4,7 @@
 Full CSV, new respondent-grouped split:
   python data_preprocessing/encode_all.py --input data/class_dataset.csv
 Existing raw splits (preferred if your team already has them):
-  python data_preprocessing/encode_all.py --train data/splits/train.csv --validation data/splits/validation.csv --test data/splits/test.csv
+  python data_preprocessing/encode_all.py --train data/splits/train.csv --validation data/splits/val.csv --test data/splits/test.csv
 Later prediction data:
   python data_preprocessing/encode_all.py --transform new.csv --model data/encoded/preprocessor.joblib --output data/encoded/new_encoded.csv
 
@@ -343,17 +343,18 @@ def grouped_split(df, seed):
     if 'id' not in df or df.id.map(clean).eq('').any():
         raise ValueError('The input needs a nonmissing respondent id column.')
     ids = df.id.unique().tolist()
-    # Numeric IDs are sorted numerically, reproducing the earlier 311 split.
-    ids = sorted(ids, key=int) if all(re.fullmatch(r'[0-9]+', x) for x in ids) else sorted(ids)
+    # Match analysis/make_splits.py exactly: lexical order, then test/val/train.
+    # A seed alone is insufficient when ordering and allocation differ.
+    ids = sorted(ids, key=str)
     if len(ids) < 3:
         raise ValueError('At least three respondents are needed for three splits.')
     ids = np.random.default_rng(seed).permutation(ids)
-    held_out = math.ceil(.15 * len(ids))
+    held_out = max(1, int(round(.15 * len(ids))))
     n_train = len(ids) - 2 * held_out
     if n_train < 1:
         raise ValueError('Not enough respondents for this split.')
-    groups = {'train': ids[:n_train], 'validation': ids[n_train:n_train+held_out],
-              'test': ids[n_train+held_out:]}
+    groups = {'test': ids[:held_out], 'validation': ids[held_out:2*held_out],
+              'train': ids[2*held_out:]}
     return {name: df[df.id.isin(group)].copy() for name, group in groups.items()}
 
 

@@ -1,5 +1,31 @@
 # analysis
 
+## Training and model comparison
+
+`model_comparison.ipynb` is the executed companion to the exploration notebook.
+It covers the report template's Appendix B guiding questions, trains/tunes all
+three model families, and compares selected configurations on validation.
+The local test set is not read and final train-plus-validation refitting is deferred.
+
+- `model_experiments.py`: fold-local preprocessing and the reproducible experiment.
+- `test_model_preprocessing.py`: tests for metadata exclusion, held-out transform
+  immutability, unknown-value handling and training-only imputation.
+- `out/models/`: complete CV tables, fold assignments, boundary checks, seed
+  stability, validation predictions/metrics, confusion matrices and saved models.
+
+Run `python analysis/model_experiments.py` or Run All in the notebook. Completed
+results are reused only when source/data hashes and runtime versions match. To
+deliberately rerun changed experiments, supply a new `--output` directory.
+Dependencies are in `analysis/requirements.txt`. Development `.joblib` models
+require scikit-learn and are not the final restricted-import prediction submission.
+Only load model artifacts you trust.
+
+The completed initial search plus boundary extensions evaluated 44 settings
+(220 CV fits), followed by 20 additional seed fits and three validation refits.
+Random forest led validation with 93.18% accuracy / 0.9317 macro-F1; softmax and
+MLP both reached 90.91% accuracy. These are model-selection validation results,
+not final-test estimates. See the notebook for uncertainty and overfitting analysis.
+
 ## Consolidated proposal notebook
 
 Open `data_exploration.ipynb` and Run All using the project `.venv` kernel.

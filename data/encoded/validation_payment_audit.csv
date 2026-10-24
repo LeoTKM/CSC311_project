@@ -1,0 +1,133 @@
+source_record,original_payment,parsed_amount,status,payment_missing,final_amount
+1,80,80.0,single_amount,0,80.0
+2,50,50.0,single_amount,0,50.0
+3,120,120.0,single_amount,0,120.0
+4,400 CAD,400.0,single_amount,0,400.0
+5,150 CAD,150.0,single_amount,0,150.0
+6,500 CAD,500.0,single_amount,0,500.0
+7,$200 ,200.0,single_amount,0,200.0
+8,$50 ,50.0,single_amount,0,50.0
+9,$120 ,120.0,single_amount,0,120.0
+10,0,0.0,single_amount,0,0.0
+11,0,0.0,single_amount,0,0.0
+12,100$,100.0,single_amount,0,100.0
+13,"$100 Canadian, at most,  maybe more depending on the tier of play. ",100.0,single_amount,0,100.0
+14,"Nothing, I'm not really a fan, perhaps a small amount ($100 max) if with friends. ",100.0,single_amount,0,100.0
+15,"Nothing, I'm not really a fan, perhaps a small amount ($100 max) if with friends. ",100.0,single_amount,0,100.0
+16,I would be willing to pay around CAD 400-500 for a decent seat.,450.0,range_midpoint,0,450.0
+17,I would be willing to pay around CAD 100 for a decent seat.,100.0,single_amount,0,100.0
+18,I would be willing to pay around CAD 100 for a decent seat.,100.0,single_amount,0,100.0
+19,"Usually around 100 to 200 CAD, but at most 1000 CAD if the game has player(s) I like or from my home team.",,multiple_or_ambiguous_amounts,1,274.2021857923497
+20,50 to 150 CAD,100.0,range_midpoint,0,100.0
+21,20 to 100 CAD,60.0,range_midpoint,0,60.0
+22,$200 CAD,200.0,single_amount,0,200.0
+23,$70 CAD ,70.0,single_amount,0,70.0
+24,$200 CAD,200.0,single_amount,0,200.0
+25,I would not pay to watch in person,,no_numeric_amount,1,274.2021857923497
+26,I would not pay for a [this sport] game,,no_numeric_amount,1,274.2021857923497
+27,I would not pay to watch this sport,,no_numeric_amount,1,274.2021857923497
+28,Zero. I have no any interest in team sport like [this sport],,no_numeric_amount,1,274.2021857923497
+29,Zero. I have no interest in team sport,,no_numeric_amount,1,274.2021857923497
+30,Zero,,no_numeric_amount,1,274.2021857923497
+31,$50 max,50.0,single_amount,0,50.0
+32,$70 ,70.0,single_amount,0,70.0
+33,$50 ,50.0,single_amount,0,50.0
+34,$200 ,200.0,single_amount,0,200.0
+35,$50 ,50.0,single_amount,0,50.0
+36,$200 ,200.0,single_amount,0,200.0
+37,400 - 800 dollars,600.0,range_midpoint,0,600.0
+38,35-100 dollars,67.5,range_midpoint,0,67.5
+39,100-200 dollars,150.0,range_midpoint,0,150.0
+40,0 dollars,0.0,single_amount,0,0.0
+41,0,0.0,single_amount,0,0.0
+42,0,0.0,single_amount,0,0.0
+43,No more than 50 CAD,50.0,single_amount,0,50.0
+44,25 CAD Maximum,25.0,single_amount,0,25.0
+45,Up to 100CAD,100.0,single_amount,0,100.0
+46,300,300.0,single_amount,0,300.0
+47,150,150.0,single_amount,0,150.0
+48,200,200.0,single_amount,0,200.0
+49,0,0.0,single_amount,0,0.0
+50,0,0.0,single_amount,0,0.0
+51,0,0.0,single_amount,0,0.0
+52,0,0.0,single_amount,0,0.0
+53,10,10.0,single_amount,0,10.0
+54,10,10.0,single_amount,0,10.0
+55,$100 ,100.0,single_amount,0,100.0
+56,$40 ,40.0,single_amount,0,40.0
+57,$100 ,100.0,single_amount,0,100.0
+58,800-1000 CAD,900.0,range_midpoint,0,900.0
+59,80-100 CAD,90.0,range_midpoint,0,90.0
+60,200-300 CAD,250.0,range_midpoint,0,250.0
+61,100,100.0,single_amount,0,100.0
+62,60,60.0,single_amount,0,60.0
+63,150,150.0,single_amount,0,150.0
+64,150$,150.0,single_amount,0,150.0
+65,80$,80.0,single_amount,0,80.0
+66,150$,150.0,single_amount,0,150.0
+67,$50 ,50.0,single_amount,0,50.0
+68,$10 ,10.0,single_amount,0,10.0
+69,$70 ,70.0,single_amount,0,70.0
+70,$20 ,20.0,single_amount,0,20.0
+71,$20 ,20.0,single_amount,0,20.0
+72,$20 ,20.0,single_amount,0,20.0
+73,0,0.0,single_amount,0,0.0
+74,0,0.0,single_amount,0,0.0
+75,0,0.0,single_amount,0,0.0
+76,I would be willing to pay $400-$500 for a good seat at a major match of the season,450.0,range_midpoint,0,450.0
+77,$400 for a good seat at a playoff game.,400.0,single_amount,0,400.0
+78,$600 for a seat close to the court.,600.0,single_amount,0,600.0
+79,500 dollars,500.0,single_amount,0,500.0
+80,80 dollars,80.0,single_amount,0,80.0
+81,500 dollars,500.0,single_amount,0,500.0
+82,$30 ,30.0,single_amount,0,30.0
+83,$50 ,50.0,single_amount,0,50.0
+84,$70 ,70.0,single_amount,0,70.0
+85,$300 ,300.0,single_amount,0,300.0
+86,$50 ,50.0,single_amount,0,50.0
+87,$200 ,200.0,single_amount,0,200.0
+88,100,100.0,single_amount,0,100.0
+89,80,80.0,single_amount,0,80.0
+90,100,100.0,single_amount,0,100.0
+91,$250 ,250.0,single_amount,0,250.0
+92,$50 ,50.0,single_amount,0,50.0
+93,$300 ,300.0,single_amount,0,300.0
+94,$200 CAD,200.0,single_amount,0,200.0
+95,$50 ,50.0,single_amount,0,50.0
+96,$200 ,200.0,single_amount,0,200.0
+97,1 to 10 scale i will put a 2 as the ticket price is too high and i prefer to watch it online instead of in person.,,ambiguous_or_not_a_price,1,274.2021857923497
+98,1 to 10 scale i will choose 2 since im a person that enjoy watching sports online,,ambiguous_or_not_a_price,1,274.2021857923497
+99,1 to 10 scale probably 1,,ambiguous_or_not_a_price,1,274.2021857923497
+100,800,800.0,single_amount,0,800.0
+101,400,400.0,single_amount,0,400.0
+102,600,600.0,single_amount,0,600.0
+103,$100 ,100.0,single_amount,0,100.0
+104,$50 ,50.0,single_amount,0,50.0
+105,$50 ,50.0,single_amount,0,50.0
+106,$300 ,300.0,single_amount,0,300.0
+107,$100 ,100.0,single_amount,0,100.0
+108,$400 ,400.0,single_amount,0,400.0
+109,$50 ,50.0,single_amount,0,50.0
+110,$25 ,25.0,single_amount,0,25.0
+111,$50 ,50.0,single_amount,0,50.0
+112,0,0.0,single_amount,0,0.0
+113,0,0.0,single_amount,0,0.0
+114,0,0.0,single_amount,0,0.0
+115,$50 ,50.0,single_amount,0,50.0
+116,$50 ,50.0,single_amount,0,50.0
+117,$100 ,100.0,single_amount,0,100.0
+118,Somewhat willing,,no_numeric_amount,1,274.2021857923497
+119,Very willing as most action is in one place,,no_numeric_amount,1,274.2021857923497
+120,Very willing,,no_numeric_amount,1,274.2021857923497
+121,$5 ,5.0,single_amount,0,5.0
+122,$5 ,5.0,single_amount,0,5.0
+123,$30 ,30.0,single_amount,0,30.0
+124,none,,no_numeric_amount,1,274.2021857923497
+125,none,,no_numeric_amount,1,274.2021857923497
+126,none,,no_numeric_amount,1,274.2021857923497
+127,500,500.0,single_amount,0,500.0
+128,200,200.0,single_amount,0,200.0
+129,400,400.0,single_amount,0,400.0
+130,$100.00 ,100.0,single_amount,0,100.0
+131,$50.00 ,50.0,single_amount,0,50.0
+132,$100.00 ,100.0,single_amount,0,100.0

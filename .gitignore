@@ -173,3 +173,5 @@ events.out.tfevents.*
 # *.npy
 # *.npz
 # *.parquet
+
+.venv/

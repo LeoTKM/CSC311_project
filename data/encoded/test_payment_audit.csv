@@ -1,0 +1,133 @@
+source_record,original_payment,parsed_amount,status,payment_missing,final_amount
+1,0,0.0,single_amount,0,0.0
+2,0,0.0,single_amount,0,0.0
+3,0,0.0,single_amount,0,0.0
+4,CAD 150,150.0,single_amount,0,150.0
+5,CAD 50,50.0,single_amount,0,50.0
+6,CAD 50,50.0,single_amount,0,50.0
+7,500 dollar,500.0,single_amount,0,500.0
+8,200,200.0,single_amount,0,200.0
+9,500,500.0,single_amount,0,500.0
+10,1000 dollar,1000.0,single_amount,0,1000.0
+11,100 dollar,100.0,single_amount,0,100.0
+12,1000 dollar,1000.0,single_amount,0,1000.0
+13,100 cad,100.0,single_amount,0,100.0
+14,0,0.0,single_amount,0,0.0
+15,50,50.0,single_amount,0,50.0
+16,200CAD,200.0,single_amount,0,200.0
+17,150CAD,150.0,single_amount,0,150.0
+18,200CAD,200.0,single_amount,0,200.0
+19,At most 500 CAD. ,500.0,single_amount,0,500.0
+20,At most 300 CAD.,300.0,single_amount,0,300.0
+21,At most 1000 CAD. ,1000.0,single_amount,0,1000.0
+22,200 CAD,200.0,single_amount,0,200.0
+23,100 CAD,100.0,single_amount,0,100.0
+24,200 CAD,200.0,single_amount,0,200.0
+25,$300 ,300.0,single_amount,0,300.0
+26,$20 ,20.0,single_amount,0,20.0
+27,$70 ,70.0,single_amount,0,70.0
+28,$500 ,500.0,single_amount,0,500.0
+29,$10 ,10.0,single_amount,0,10.0
+30,$150 ,150.0,single_amount,0,150.0
+31,100 dollars,100.0,single_amount,0,100.0
+32,20 dollars,20.0,single_amount,0,20.0
+33,2000 dollars,2000.0,single_amount,0,2000.0
+34,$50 ,50.0,single_amount,0,50.0
+35,$60 ,60.0,single_amount,0,60.0
+36,$100 ,100.0,single_amount,0,100.0
+37,$50 ,50.0,single_amount,0,50.0
+38,$80 ,80.0,single_amount,0,80.0
+39,$80 ,80.0,single_amount,0,80.0
+40,$300 ,300.0,single_amount,0,300.0
+41,$400 ,400.0,single_amount,0,400.0
+42,$100 ,100.0,single_amount,0,100.0
+43,"Not much, I'm not a huge fan maybe $50 max.",50.0,single_amount,0,50.0
+44,$50 ,50.0,single_amount,0,50.0
+45,$50 ,50.0,single_amount,0,50.0
+46,300,300.0,single_amount,0,300.0
+47,300,300.0,single_amount,0,300.0
+48,350,350.0,single_amount,0,350.0
+49, $200,200.0,single_amount,0,200.0
+50,$200 ,200.0,single_amount,0,200.0
+51,$200 ,200.0,single_amount,0,200.0
+52,200 dollars,200.0,single_amount,0,200.0
+53,100 dollars,100.0,single_amount,0,100.0
+54,200 dollars,200.0,single_amount,0,200.0
+55,$500 ,500.0,single_amount,0,500.0
+56,$100 ,100.0,single_amount,0,100.0
+57,$300 ,300.0,single_amount,0,300.0
+58,1000,1000.0,single_amount,0,1000.0
+59,80,80.0,single_amount,0,80.0
+60,100,100.0,single_amount,0,100.0
+61,0,0.0,single_amount,0,0.0
+62,0,0.0,single_amount,0,0.0
+63,0,0.0,single_amount,0,0.0
+64,$300 CAD,300.0,single_amount,0,300.0
+65,$50 CAD,50.0,single_amount,0,50.0
+66,$275 CAD,275.0,single_amount,0,275.0
+67,$500 ,500.0,single_amount,0,500.0
+68,$100 ,100.0,single_amount,0,100.0
+69,$400 ,400.0,single_amount,0,400.0
+70,600,600.0,single_amount,0,600.0
+71,300,300.0,single_amount,0,300.0
+72,800,800.0,single_amount,0,800.0
+73,120 Canadian dollars,120.0,single_amount,0,120.0
+74,90 Canadian dollars,90.0,single_amount,0,90.0
+75,150 Canadian dollars,150.0,single_amount,0,150.0
+76,150,150.0,single_amount,0,150.0
+77,30,30.0,single_amount,0,30.0
+78,200,200.0,single_amount,0,200.0
+79,100 dollars,100.0,single_amount,0,100.0
+80,30,30.0,single_amount,0,30.0
+81,300 dollars,300.0,single_amount,0,300.0
+82,500,500.0,single_amount,0,500.0
+83,20,20.0,single_amount,0,20.0
+84,200,200.0,single_amount,0,200.0
+85,0,0.0,single_amount,0,0.0
+86,0,0.0,single_amount,0,0.0
+87,0,0.0,single_amount,0,0.0
+88,1000,1000.0,single_amount,0,1000.0
+89,50,50.0,single_amount,0,50.0
+90,500,500.0,single_amount,0,500.0
+91,Around $150–200 for a solid seat at a high-level professional match.,175.0,range_midpoint,0,175.0
+92,Around $80.,,no_numeric_amount,1,274.2021857923497
+93,Around $150–200.,150.0,single_amount,0,150.0
+94,$100 ,100.0,single_amount,0,100.0
+95,$100 ,100.0,single_amount,0,100.0
+96,$100 ,100.0,single_amount,0,100.0
+97,500$,500.0,single_amount,0,500.0
+98,50$,50.0,single_amount,0,50.0
+99,500$,500.0,single_amount,0,500.0
+100,"I’d be willing to pay around $50–$100 CAD for a decent seat at a professional [this sport] game. For a major international tournament or a particularly important match, I’d be willing to spend up to $150 CAD.",,multiple_or_ambiguous_amounts,1,274.2021857923497
+101,$30 CAD.,30.0,single_amount,0,30.0
+102,$100 CAD max!,100.0,single_amount,0,100.0
+103,400cad,400.0,single_amount,0,400.0
+104,200cad,200.0,single_amount,0,200.0
+105,300cad,300.0,single_amount,0,300.0
+106,100,100.0,single_amount,0,100.0
+107,30,30.0,single_amount,0,30.0
+108,20,20.0,single_amount,0,20.0
+109,None,,no_numeric_amount,1,274.2021857923497
+110,None,,no_numeric_amount,1,274.2021857923497
+111,$150 ,150.0,single_amount,0,150.0
+112,120,120.0,single_amount,0,120.0
+113,80,80.0,single_amount,0,80.0
+114,70,70.0,single_amount,0,70.0
+115,not much if at all,,no_numeric_amount,1,274.2021857923497
+116,a bit more since it gives you higher chance to see the swing and maybe catch the ball,,no_numeric_amount,1,274.2021857923497
+117,A bit more than usual to see close ups and players technique,,no_numeric_amount,1,274.2021857923497
+118,150,150.0,single_amount,0,150.0
+119,70,70.0,single_amount,0,70.0
+120,150,150.0,single_amount,0,150.0
+121,500 dollar,500.0,single_amount,0,500.0
+122,300,300.0,single_amount,0,300.0
+123,400,400.0,single_amount,0,400.0
+124,200,200.0,single_amount,0,200.0
+125,300,300.0,single_amount,0,300.0
+126,200,200.0,single_amount,0,200.0
+127,$150 CAD,150.0,single_amount,0,150.0
+128,$60 CAD,60.0,single_amount,0,60.0
+129,$80 CAD,80.0,single_amount,0,80.0
+130,You need to pay me to sit there.,,no_numeric_amount,1,274.2021857923497
+131,You need to pay me to sit there.,,no_numeric_amount,1,274.2021857923497
+132,You need to pay me to sit there.,,no_numeric_amount,1,274.2021857923497

@@ -1,0 +1,37 @@
+{
+  "dataset": "data/class_dataset.csv",
+  "group_col": "id",
+  "label_col": "label",
+  "seed": 311,
+  "n_rows": 870,
+  "n_groups": 290,
+  "splits": {
+    "train": {
+      "groups": 202,
+      "rows": 606,
+      "rows_per_class": {
+        "Baseball": 202,
+        "Basketball": 202,
+        "Soccer": 202
+      }
+    },
+    "val": {
+      "groups": 44,
+      "rows": 132,
+      "rows_per_class": {
+        "Baseball": 44,
+        "Basketball": 44,
+        "Soccer": 44
+      }
+    },
+    "test": {
+      "groups": 44,
+      "rows": 132,
+      "rows_per_class": {
+        "Baseball": 44,
+        "Basketball": 44,
+        "Soccer": 44
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+question,kind,option,n,selected,selected_Soccer,selected_Baseball,selected_Basketball,n_Soccer,n_Baseball,n_Basketball,cramers_v
+Q5 venue,multi_indicator,Indoor facility,599,373,129,51,193,201,199,199,0.6006526689489439
+Q5 venue,multi_indicator,Outdoor public space,599,535,189,168,178,201,199,199,0.1271112339217953
+Q5 venue,multi_indicator,School or university facility,599,518,175,151,192,201,199,199,0.24585779083149195
+Q5 venue,multi_indicator,Community recreation facility,599,431,152,101,178,201,199,199,0.35581516486152853
+Q5 venue,multi_indicator,Private sports facility,599,428,140,121,167,201,199,199,0.2105132689483389
+Q5 venue,multi_indicator,At home or nearby,599,258,96,30,132,201,199,199,0.427210468305177
+Q5 venue,multi_indicator,Others,599,59,32,6,21,201,199,199,0.17773209103364646
+Q6 season,multi_indicator,Winter,599,143,16,12,115,201,199,199,0.5614500490270518
+Q6 season,multi_indicator,Spring,599,456,139,152,165,201,199,199,0.13194988224458032
+Q6 season,multi_indicator,Summer,599,558,185,186,187,201,199,199,0.03242346006066898
+Q6 season,multi_indicator,Fall,599,446,133,139,174,201,199,199,0.21274365146005758
+Q7 music type,multi_indicator,Pop,599,237,78,64,95,201,199,199,0.13030789255405223
+Q7 music type,multi_indicator,Electronic or dance,599,130,73,24,33,201,199,199,0.25590240513948664
+Q7 music type,multi_indicator,Latin,599,92,82,9,1,201,199,199,0.5034188316001244
+Q7 music type,multi_indicator,Folk or traditional,599,33,8,22,3,201,199,199,0.1770783370337862
+Q7 music type,multi_indicator,Classical or jazz,599,22,4,14,4,201,199,199,0.12608821894172
+Q7 music type,multi_indicator,Hip-hop or rap,599,290,80,43,167,201,199,199,0.5227287043767719
+Q7 music type,multi_indicator,Country,599,80,9,64,7,201,199,199,0.3900881264729704
+Q7 music type,multi_indicator,Rock,599,147,49,43,55,201,199,199,0.05717495807353828
+Q7 music type,multi_indicator,No particular type,599,118,34,65,19,201,199,199,0.24204040179323638
+Q7 music type,multi_indicator,Other,599,17,5,6,6,201,199,199,0.014999850590999435

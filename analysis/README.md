@@ -1,5 +1,20 @@
 # analysis
 
+## Consolidated proposal notebook
+
+Open `data_exploration.ipynb` and Run All using the project `.venv` kernel.
+Install its dependencies with `python -m pip install -r analysis/requirements.txt`.
+The executed notebook combines the original categorical/text analysis with Q1,
+parsed Q12, encoder-aligned missingness, text-vector coverage and redundancy checks.
+Tables and figures are exported to `analysis/out/proposal/`.
+
+The canonical partition is `data/splits/`. Rebuild generated encodings with
+`python analysis/rebuild_encoded.py`; this preserves raw files and checks row IDs
+and labels before replacing generated artifacts. The notebook verifies manifests
+and source hashes. Its missingness tables distinguish the encoder's policy from
+the older semantic heuristics below. Structured Q1–Q7 missing values still require
+training-fitted imputation in the future modelling pipeline.
+
 All scripts read the **train split** by default (`data/splits/train.csv`) and print
 their results to the terminal; the tables are also written as CSV.
 

@@ -1,11 +1,12 @@
 {
   "status": "complete",
   "provenance": {
+    "hash_format": "sha256-lf-v1",
     "sha256": {
-      "data/splits/train.csv": "336c0aa1c3202f6f24a1b8b1d9e12a78727e8852e5d126baabbbc6f142761a47",
-      "data/splits/val.csv": "d43c9a213a55e9a251bb22aeecec0c5fd363b1d054cbb8157a860285d85ff9f8",
-      "analysis/model_experiments.py": "4a7e8f2633c3d0c44b1c0d0be288461c55b9674435f0388002c0e4c11a2df4f8",
-      "data_preprocessing/encode_all.py": "c374e9502ec92808eeede80c8f17f6ad36024a4acd046da34eac0304c291c601"
+      "data/splits/train.csv": "8b020bc700831d9dc8848007bd8f683d56d4625f5b3d7f62f08b9ef2c40fa18f",
+      "data/splits/val.csv": "f4af1a4b5b2fdc9ae8d644997cede6cf608ed2cc164a7691db727cea52d758a3",
+      "analysis/model_experiments.py": "5c750a236db7373e0ba2aae61169a8aacdebe0af4b8091072f49e4590e2748cc",
+      "data_preprocessing/encode_all.py": "b071b13732cc0477d7a47c39cf28ee7bc6189297994cf0448669468723971494"
     },
     "python": "3.12.14",
     "packages": {
@@ -70,8 +71,8 @@
     "selection": "CV mean accuracy, macro-F1, simplicity; validation accuracy, macro-F1, softmax then forest then mlp",
     "training_threads": 1
   },
-  "started_utc": "2026-10-24T19:52:20.166662+00:00",
-  "completed_utc": "2026-10-24T19:54:59.210293+00:00",
+  "started_utc": "2026-10-25T05:44:07.944396+00:00",
+  "completed_utc": "2026-10-25T05:52:40.858030+00:00",
   "selected_family": "forest",
   "baseline": {
     "accuracy": 0.3333333333333333,

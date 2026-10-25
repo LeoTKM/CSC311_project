@@ -91,10 +91,16 @@ class SurveyPreprocessor:
         return features.to_numpy(dtype=float)
 
 
+def text_sha256(path):
+    """Hash tracked text consistently across LF and CRLF Git checkouts."""
+    return hashlib.sha256(Path(path).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+
+
 def provenance():
     files = ['data/splits/train.csv', 'data/splits/val.csv',
              'analysis/model_experiments.py', 'data_preprocessing/encode_all.py']
-    return {'sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files},
+    return {'hash_format': 'sha256-lf-v1',
+            'sha256': {p: text_sha256(ROOT/p) for p in files},
             'python': platform.python_version(),
             'packages': {p: importlib.metadata.version(p) for p in
                          ['numpy', 'pandas', 'scikit-learn', 'scipy', 'joblib', 'threadpoolctl']},

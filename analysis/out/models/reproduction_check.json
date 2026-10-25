@@ -1,0 +1,34 @@
+{
+  "original_commit": "bbc900d80d8b31ec6dfa24b65a2e7a6a81358d64",
+  "original_results_url": "https://github.com/LeoTKM/CSC311_project/tree/bbc900d80d8b31ec6dfa24b65a2e7a6a81358d64/analysis/out/models",
+  "reason": "The archived experiment source hash could not be matched to the committed source, including after LF/CRLF normalization. A full unchanged-grid reproduction was run; old provenance was not relabeled.",
+  "original_manifest_file": "previous_run_manifest.json",
+  "reproduced_manifest_file": "run_manifest.json",
+  "reproduction_runtime": {
+    "system": "Darwin",
+    "machine": "x86_64"
+  },
+  "equal_checks": {
+    "selected_configs.json": true,
+    "boundary_review.json": true,
+    "fold_preprocessing.json": true,
+    "classification_reports.json": true,
+    "validation_predictions.csv": true,
+    "fold_assignments.csv": true,
+    "forest_confusion.csv": true,
+    "softmax_confusion.csv": true,
+    "mlp_confusion.csv": true,
+    "comparison_metrics": true
+  },
+  "cv_metric_changes_by_family": {
+    "forest": 0,
+    "mlp": 32,
+    "softmax": 0
+  },
+  "tuning_retries": {
+    "original": 4,
+    "reproduced": 5
+  },
+  "limitations": "Some MLP fold scores and convergence retries differ. The original exact source is unavailable, so the cause cannot be isolated; neither bitwise identity nor a platform-only explanation is claimed. Fixed seeds and package versions alone need not guarantee identical native numerical optimization.",
+  "test_evaluation_performed": false
+}

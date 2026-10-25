@@ -14,11 +14,24 @@ The local test set is not read and final train-plus-validation refitting is defe
   stability, validation predictions/metrics, confusion matrices and saved models.
 
 Run `python analysis/model_experiments.py` or Run All in the notebook. Completed
-results are reused only when source/data hashes and runtime versions match. To
+results are reused only when source/data hashes and runtime versions match. Text
+hashes normalize CRLF to LF, so Git line-ending conversion alone does not invalidate
+the experiment; actual content changes still do. To
 deliberately rerun changed experiments, supply a new `--output` directory.
 Dependencies are in `analysis/requirements.txt`. Development `.joblib` models
 require scikit-learn and are not the final restricted-import prediction submission.
 Only load model artifacts you trust.
+
+The current artifacts were regenerated on 2026-10-25 with the same grids, folds
+and seeds, after the previous manifest's experiment-source hash could not be
+matched to the committed source. `out/models/previous_run_manifest.json` preserves
+that manifest; `out/models/reproduction_check.json` links the complete original
+results in Git history and records the comparison. All selected configurations,
+selected-model comparison metrics and validation predictions match. Some MLP
+fold metrics differ, and tuning retries changed from four to five; the original
+exact source is unavailable, so the cause of these differences is not established.
+The report's retry count reflects the regenerated run. Fixed seeds and dependency
+versions do not promise bitwise-identical numerical optimization on every platform.
 
 The completed initial search plus boundary extensions evaluated 44 settings
 (220 CV fits), followed by 20 additional seed fits and three validation refits.

@@ -1,0 +1,4 @@
+split,responses,respondents,Soccer,Baseball,Basketball
+train,606,202,202,202,202
+validation,132,44,44,44,44
+test,132,44,44,44,44

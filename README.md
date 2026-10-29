@@ -11,7 +11,7 @@ python -m pip install pandas numpy scikit-learn joblib
 ```bash
 python data_preprocessing/encode_all.py \
   --train data/splits/train.csv \
-  --validation data/splits/validation.csv \
+  --validation data/splits/val.csv \
   --test data/splits/test.csv
 ```
 

@@ -1,0 +1,77 @@
+{
+  "stage": "ablation",
+  "provenance": {
+    "sha256": {
+      "data\\splits\\train.csv": "336c0aa1c3202f6f24a1b8b1d9e12a78727e8852e5d126baabbbc6f142761a47",
+      "data\\splits\\val.csv": "d43c9a213a55e9a251bb22aeecec0c5fd363b1d054cbb8157a860285d85ff9f8",
+      "data_preprocessing\\encode_all.py": "c374e9502ec92808eeede80c8f17f6ad36024a4acd046da34eac0304c291c601",
+      "analysis\\model_experiments.py": "7c098ced486687a2b692eef18b693b1972031935b65fd563ec0e3133c033a0f3",
+      "train\\random_forest\\config.py": "3cc12a2d82021dbfda883c9270f53c5ae531e85ed5a4f7c99a9c09bbee850b8b",
+      "train\\random_forest\\features.py": "f3e6052ca847b9fa370806c3e62a2c3b5534f873e0bc66d1c4043d2ff5022841",
+      "train\\random_forest\\selection.py": "662b1398e5b04624a966f8853da2156069211d986eddfcd330702571d1de313d",
+      "train\\random_forest\\run.py": "0c03996e2882eeb09aa92e7bcc3eee24f83a17242ce6d8f5825259e45e96342d"
+    },
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1"
+    },
+    "python": "3.12.14",
+    "fold_seeds": [
+      311,
+      312,
+      313
+    ],
+    "ablation_fold_seeds": [
+      311
+    ],
+    "n_splits": 5,
+    "grid": {
+      "max_depth": [
+        4,
+        6,
+        8,
+        12,
+        16,
+        null
+      ],
+      "min_samples_leaf": [
+        1,
+        2,
+        3,
+        5,
+        8
+      ],
+      "max_features": [
+        "sqrt",
+        "log2",
+        0.3,
+        0.5,
+        1.0
+      ]
+    },
+    "ablation_grid": {
+      "max_depth": [
+        4,
+        null
+      ],
+      "min_samples_leaf": [
+        1,
+        5
+      ],
+      "max_features": [
+        "sqrt"
+      ]
+    },
+    "fixed": {
+      "n_estimators": 300,
+      "criterion": "gini",
+      "bootstrap": true,
+      "class_weight": null,
+      "oob_score": false,
+      "n_jobs": 1
+    },
+    "selection_rule": "Primary metric on grouped repeated CV, then a one-standard-error band, then the simplest configuration: shallower depth, then larger leaves, then fewer candidate split features."
+  }
+}

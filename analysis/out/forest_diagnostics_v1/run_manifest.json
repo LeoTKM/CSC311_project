@@ -1,0 +1,14 @@
+{
+  "stage": "diagnostics",
+  "params": {
+    "max_depth": 6,
+    "max_features": "log2",
+    "min_samples_leaf": 3
+  },
+  "text_fields": [
+    "food",
+    "colour",
+    "song",
+    "feeling"
+  ]
+}

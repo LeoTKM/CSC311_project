@@ -1,0 +1,13 @@
+field,budget,blank,no_column,share
+food,v1  50/min_df2/tf (50 cols),12,40,0.066006600660066
+food,v2  30/min_df3/chi2 (30 cols),12,115,0.18976897689768976
+food,v3  50/min_df2/chi2 (50 cols),12,93,0.15346534653465346
+colour,"v1  50/min_df2/tf (lexicon, 17 cols)",7,24,0.039603960396039604
+colour,"v2  30/min_df3/chi2 (lexicon, 17 cols)",7,24,0.039603960396039604
+colour,"v3  50/min_df2/chi2 (lexicon, 17 cols)",7,24,0.039603960396039604
+song,v1  50/min_df2/tf (50 cols),32,162,0.26732673267326734
+song,v2  30/min_df3/chi2 (30 cols),32,290,0.47854785478547857
+song,v3  50/min_df2/chi2 (50 cols),32,211,0.3481848184818482
+feeling,v1  50/min_df2/tf (50 cols),7,115,0.18976897689768976
+feeling,v2  30/min_df3/chi2 (30 cols),7,232,0.38283828382838286
+feeling,v3  50/min_df2/chi2 (50 cols),7,185,0.30528052805280526

@@ -1,0 +1,16 @@
+# Dependencies for the scripts in this directory.
+# Tested with the interpreter below; any recent build of the three libraries works.
+#   Python 3.12.14
+pandas>=3.0
+numpy>=2.5
+scikit-learn>=1.9
+
+# The scripts in this directory also read the canonical splits and import two helper
+# modules that already exist in the repository. Nothing else is required:
+#
+#   data/splits/{train,val,test,id_to_split}.csv   produced by analysis/rebuild_encoded.py
+#   data_preprocessing/encode_all.py               column names, clean(), raw_headers()
+#   analysis/survey_common.py                      the analysis-side non-answer set
+#   train/random_forest_v2/text.py                 the v2 tokenizer
+#
+# No plotting library is used here and none of these scripts writes a file.

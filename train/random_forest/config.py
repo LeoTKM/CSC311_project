@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TRAIN_CSV = ROOT / 'data' / 'splits' / 'train.csv'
 VAL_CSV = ROOT / 'data' / 'splits' / 'val.csv'
 TEST_CSV = ROOT / 'data' / 'splits' / 'test.csv'
-DEFAULT_OUTPUT = ROOT / 'analysis' / 'out' / 'forest'
+DEFAULT_OUTPUT = ROOT / 'random_forest_deliverables' / 'forest'
 
 CLASSES = ['Soccer', 'Baseball', 'Basketball']
 

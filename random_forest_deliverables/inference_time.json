@@ -1,0 +1,127 @@
+{
+  "batch_rows": 132,
+  "n_estimators": 300,
+  "model_seed": 311,
+  "repeats": 7,
+  "budget_seconds": 1.0,
+  "timing_batch": "the first 132 rows of the training split",
+  "traversal_matches_sklearn": true,
+  "versions": [
+    {
+      "version": "report",
+      "features": 208,
+      "params": {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      },
+      "trees": 300,
+      "nodes_total": 71342,
+      "nodes_max_tree": 315,
+      "depth_max": 31,
+      "depth_mean": 21.156666666666666,
+      "predict_132s": 0.021869099997275043,
+      "traverse_132s": 0.11219290000008186,
+      "traverse_1s": 0.027288299999781884,
+      "traverse_606s": 0.20819339999434305,
+      "preprocess_132s": 0.09001880000141682,
+      "predictions_checked": 132,
+      "classes": [
+        "Baseball",
+        "Basketball",
+        "Soccer"
+      ]
+    },
+    {
+      "version": "v1",
+      "features": 208,
+      "params": {
+        "max_depth": 6,
+        "max_features": "log2",
+        "min_samples_leaf": 3
+      },
+      "trees": 300,
+      "nodes_total": 9914,
+      "nodes_max_tree": 57,
+      "depth_max": 6,
+      "depth_mean": 6.0,
+      "predict_132s": 0.018260000004374888,
+      "traverse_132s": 0.035560500000428874,
+      "traverse_1s": 0.02202729999407893,
+      "traverse_606s": 0.07193810000171652,
+      "preprocess_132s": 0.10259460000088438,
+      "predictions_checked": 132,
+      "classes": [
+        "Baseball",
+        "Basketball",
+        "Soccer"
+      ]
+    },
+    {
+      "version": "v2",
+      "features": 183,
+      "params": {
+        "max_depth": 8,
+        "max_features": "log2",
+        "min_samples_leaf": 2
+      },
+      "trees": 300,
+      "nodes_total": 20640,
+      "nodes_max_tree": 111,
+      "depth_max": 8,
+      "depth_mean": 8.0,
+      "predict_132s": 0.020468000002438203,
+      "traverse_132s": 0.04658789999666624,
+      "traverse_1s": 0.02630430000135675,
+      "traverse_606s": 0.07704389999707928,
+      "preprocess_132s": 0.037331100000301376,
+      "predictions_checked": 132,
+      "classes": [
+        "Baseball",
+        "Basketball",
+        "Soccer"
+      ]
+    },
+    {
+      "version": "v3",
+      "features": 173,
+      "params": {
+        "max_depth": 8,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      },
+      "trees": 300,
+      "nodes_total": 23736,
+      "nodes_max_tree": 129,
+      "depth_max": 8,
+      "depth_mean": 8.0,
+      "predict_132s": 0.021015399994212203,
+      "traverse_132s": 0.04794150000088848,
+      "traverse_1s": 0.02576059999410063,
+      "traverse_606s": 0.08130879999953322,
+      "preprocess_132s": 0.030476500003715046,
+      "predictions_checked": 132,
+      "classes": [
+        "Baseball",
+        "Basketball",
+        "Soccer"
+      ]
+    }
+  ],
+  "slowest": {
+    "version": "report",
+    "seconds_for_batch": 0.20221170000149868,
+    "headroom": 4.945312264288311
+  },
+  "test_accessed": false,
+  "validation_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv"
+  ],
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1"
+  }
+}

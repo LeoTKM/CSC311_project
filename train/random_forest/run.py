@@ -19,13 +19,13 @@ Stages (all write into one output directory that must not already exist):
 Typical order:
 
     python train/random_forest/run.py --dry-run --stage search
-    python train/random_forest/run.py --stage ablation --output analysis/out/forest_abl
+    python train/random_forest/run.py --stage ablation --output random_forest_deliverables/forest_abl
     python train/random_forest/run.py --stage search --text-fields no_song_no_feeling \
-        --output analysis/out/forest_search
-    python train/random_forest/run.py --stage diagnostics --source analysis/out/forest_search
-    python train/random_forest/run.py --stage fit --source analysis/out/forest_search
-    python train/random_forest/run.py --stage final --source analysis/out/forest_search
-    python train/random_forest/run.py --stage test --source analysis/out/forest_search \
+        --output random_forest_deliverables/forest_search
+    python train/random_forest/run.py --stage diagnostics --source random_forest_deliverables/forest_search
+    python train/random_forest/run.py --stage fit --source random_forest_deliverables/forest_search
+    python train/random_forest/run.py --stage final --source random_forest_deliverables/forest_search
+    python train/random_forest/run.py --stage test --source random_forest_deliverables/forest_search \
         --i-accept-using-the-test-set
 """
 import argparse

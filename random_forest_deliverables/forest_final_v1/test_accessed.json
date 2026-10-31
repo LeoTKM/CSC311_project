@@ -1,0 +1,10 @@
+{
+  "evaluated_utc": "2026-10-31T01:27:50.745469+00:00",
+  "rows": 132,
+  "params": {
+    "max_depth": 6,
+    "max_features": "log2",
+    "min_samples_leaf": 3
+  },
+  "test_accessed": true
+}

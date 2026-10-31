@@ -1,0 +1,23 @@
+{
+  "metric": "accuracy",
+  "basis": "se",
+  "higher_is_better": true,
+  "best_value": 0.9086585365853658,
+  "best_params": {
+    "max_depth": null,
+    "max_features": "log2",
+    "min_samples_leaf": 2
+  },
+  "spread": 0.020535612418248438,
+  "band_width": 0.005302272326669761,
+  "threshold": 0.903356264258696,
+  "band_size": 19,
+  "n_configurations": 150,
+  "chosen_params": {
+    "max_depth": 8,
+    "max_features": "log2",
+    "min_samples_leaf": 2
+  },
+  "chosen_value": 0.9042818428184282,
+  "chosen_n_features": 183
+}

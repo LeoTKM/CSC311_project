@@ -1,0 +1,38 @@
+{
+  "stage": "cv",
+  "rows": 606,
+  "fold_seeds": [
+    311,
+    312,
+    313
+  ],
+  "params": {
+    "max_depth": 6,
+    "min_samples_leaf": 3,
+    "max_features": "log2"
+  },
+  "n_estimators": 300,
+  "cv_accuracy": 0.8971680216802169,
+  "cv_accuracy_sd": 0.020244098732347764,
+  "cv_macro_f1": 0.8965736679192078,
+  "cv_log_loss": 0.6069274001969044,
+  "train_accuracy": 0.9246410892143582,
+  "n_features": 183,
+  "v1_reference": 0.9043,
+  "difference": -0.007131978319783072,
+  "test_accessed": false,
+  "sources": {
+    "text.py": "ea67e9764c12f3c1f276ad203587dc8e4a8a4378e911857638ddb20170f88726",
+    "encode.py": "62aaa02f124f4ff4803654bfcbdde2c7cd4bb8d9eb00259aaac74344eba7ad46",
+    "features.py": "9eed46426b2e23fba1944acaec403fa105607e905f38b5bb349f7564e761c786",
+    "selection.py": "88a8c6002ab4f66253b698156061406a0f510a1df068fd3b60affe6b5efbc030",
+    "run.py": "00df975851d7db2bc66fb8de0f16d0ce79585b0738a1c91cd15516c8a0355038"
+  },
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

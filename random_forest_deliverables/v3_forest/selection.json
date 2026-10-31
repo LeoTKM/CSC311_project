@@ -1,0 +1,43 @@
+{
+  "metric": "accuracy",
+  "basis": "se",
+  "higher_is_better": true,
+  "best_value": 0.9097967479674797,
+  "best_params": {
+    "max_depth": 12,
+    "max_features": "log2",
+    "min_samples_leaf": 1
+  },
+  "spread": 0.020504465001381304,
+  "band_width": 0.005294230098216175,
+  "threshold": 0.9045025178692635,
+  "band_size": 12,
+  "n_configurations": 150,
+  "chosen_params": {
+    "max_depth": 8,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2
+  },
+  "chosen_value": 0.9054200542005421,
+  "chosen_n_features": 173,
+  "test_accessed": false,
+  "validation_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv"
+  ],
+  "sources": {
+    "text.py": "9672f22c43e7efc4b541678896e5de1384fead97e85e3bdf20e65309f39ed05a",
+    "encode.py": "f3cbf0923e35c376430343ec8964e95fb6a0c907badc902c17b885f1237395ce",
+    "features.py": "f45bc98505e14e7927bf6e3b87414be462372c19e958f14a855313c6d1df2280",
+    "selection.py": "9632fedc222aef8752fbffb057c7d12beb8b3dd1006db3e597423f4207bb070e",
+    "run.py": "cc13ca99eb00e8d191c66dc534d65454c8f2461346088f0c8df135a16519bb6f"
+  },
+  "train_sha256": "336c0aa1c3202f6f24a1b8b1d9e12a78727e8852e5d126baabbbc6f142761a47",
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

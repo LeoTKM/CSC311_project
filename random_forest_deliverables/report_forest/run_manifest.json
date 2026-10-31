@@ -1,0 +1,43 @@
+{
+  "version": "report",
+  "stage": "reproduce",
+  "reproduced": true,
+  "test_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv",
+    "data/splits/val.csv"
+  ],
+  "params": {
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1
+  },
+  "model_seed": 311,
+  "n_estimators": 300,
+  "sources": {
+    "analysis/model_experiments.py": "7c098ced486687a2b692eef18b693b1972031935b65fd563ec0e3133c033a0f3",
+    "data_preprocessing/encode_all.py": "c374e9502ec92808eeede80c8f17f6ad36024a4acd046da34eac0304c291c601",
+    "train/random_forest_report/reproduce.py": "b4fc87b245180879c7fa485484b14bff879046078cc3dadfe8833d7f149864d6"
+  },
+  "source_check": [
+    {
+      "file": "analysis/model_experiments.py",
+      "report_sha256": "4a7e8f2633c3d0c44b1c0d0be288461c55b9674435f0388002c0e4c11a2df4f8",
+      "current_sha256": "7c098ced486687a2b692eef18b693b1972031935b65fd563ec0e3133c033a0f3",
+      "unchanged": false
+    },
+    {
+      "file": "data_preprocessing/encode_all.py",
+      "report_sha256": "c374e9502ec92808eeede80c8f17f6ad36024a4acd046da34eac0304c291c601",
+      "current_sha256": "c374e9502ec92808eeede80c8f17f6ad36024a4acd046da34eac0304c291c601",
+      "unchanged": true
+    }
+  ],
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

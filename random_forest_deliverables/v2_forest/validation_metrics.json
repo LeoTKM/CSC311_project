@@ -1,0 +1,102 @@
+{
+  "stage": "validation",
+  "rows": 132,
+  "respondents": 44,
+  "params": {
+    "max_depth": 8,
+    "max_features": "log2",
+    "min_samples_leaf": 2
+  },
+  "n_estimators": 300,
+  "n_features": 183,
+  "accuracy": 0.9242424242424242,
+  "macro_f1": 0.9237611831653707,
+  "log_loss": 0.4952600230849884,
+  "bootstrap": {
+    "accuracy": {
+      "mean": 0.9239943181818181,
+      "low": 0.8787878787878788,
+      "high": 0.9696969696969697
+    },
+    "macro_f1": {
+      "mean": 0.923390215051779,
+      "low": 0.8745027867321681,
+      "high": 0.9693956623924614
+    }
+  },
+  "per_class": {
+    "Soccer": {
+      "precision": 0.9736842105263158,
+      "recall": 0.8409090909090909,
+      "f1-score": 0.9024390243902439,
+      "support": 44.0
+    },
+    "Baseball": {
+      "precision": 0.9534883720930233,
+      "recall": 0.9318181818181818,
+      "f1-score": 0.9425287356321839,
+      "support": 44.0
+    },
+    "Basketball": {
+      "precision": 0.8627450980392157,
+      "recall": 1.0,
+      "f1-score": 0.9263157894736842,
+      "support": 44.0
+    },
+    "accuracy": 0.9242424242424242,
+    "macro avg": {
+      "precision": 0.9299725602195182,
+      "recall": 0.9242424242424242,
+      "f1-score": 0.9237611831653707,
+      "support": 132.0
+    },
+    "weighted avg": {
+      "precision": 0.9299725602195184,
+      "recall": 0.9242424242424242,
+      "f1-score": 0.9237611831653706,
+      "support": 132.0
+    }
+  },
+  "confusion": [
+    [
+      37,
+      2,
+      5
+    ],
+    [
+      1,
+      41,
+      2
+    ],
+    [
+      0,
+      0,
+      44
+    ]
+  ],
+  "classes": [
+    "Baseball",
+    "Basketball",
+    "Soccer"
+  ],
+  "train_accuracy": 0.9356435643564357,
+  "test_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv",
+    "data/splits/val.csv"
+  ],
+  "sources": {
+    "text.py": "ea67e9764c12f3c1f276ad203587dc8e4a8a4378e911857638ddb20170f88726",
+    "encode.py": "62aaa02f124f4ff4803654bfcbdde2c7cd4bb8d9eb00259aaac74344eba7ad46",
+    "features.py": "9eed46426b2e23fba1944acaec403fa105607e905f38b5bb349f7564e761c786",
+    "selection.py": "88a8c6002ab4f66253b698156061406a0f510a1df068fd3b60affe6b5efbc030",
+    "run.py": "40fa38c818fde141112a062e12d996de172e7a35fa4b593a666051ee10a6fe49"
+  },
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

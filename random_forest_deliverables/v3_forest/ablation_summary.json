@@ -1,0 +1,111 @@
+{
+  "stage": "ablation",
+  "fold_seed": 311,
+  "grid": {
+    "max_depth": [
+      4,
+      null
+    ],
+    "min_samples_leaf": [
+      1,
+      5
+    ],
+    "max_features": [
+      "sqrt"
+    ]
+  },
+  "variants": [
+    {
+      "variant": "all",
+      "text_fields": "food,colour,song,feeling",
+      "n_features": 173,
+      "best_accuracy": 0.9333333333333333,
+      "best_macro_f1": 0.934609250398724,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.900640243902439
+    },
+    {
+      "variant": "no_food",
+      "text_fields": "colour,song,feeling",
+      "n_features": 120,
+      "best_accuracy": 0.9333333333333333,
+      "best_macro_f1": 0.9343602134299808,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8953353658536585
+    },
+    {
+      "variant": "no_colour",
+      "text_fields": "food,song,feeling",
+      "n_features": 153,
+      "best_accuracy": 0.9166666666666666,
+      "best_macro_f1": 0.917419835066894,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8600711382113821
+    },
+    {
+      "variant": "no_song",
+      "text_fields": "food,colour,feeling",
+      "n_features": 120,
+      "best_accuracy": 0.9186991869918699,
+      "best_macro_f1": 0.9182806641346684,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8790345528455283
+    },
+    {
+      "variant": "no_feeling",
+      "text_fields": "food,colour,song",
+      "n_features": 158,
+      "best_accuracy": 0.9333333333333333,
+      "best_macro_f1": 0.9336756525459992,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8981910569105691
+    },
+    {
+      "variant": "no_song_no_feeling",
+      "text_fields": "food,colour",
+      "n_features": 105,
+      "best_accuracy": 0.9186991869918699,
+      "best_macro_f1": 0.9181929181929182,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8732418699186992
+    },
+    {
+      "variant": "colour_only",
+      "text_fields": "colour",
+      "n_features": 52,
+      "best_accuracy": 0.9083333333333333,
+      "best_macro_f1": 0.909085221118163,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 5}",
+      "mean_accuracy": 0.8700609756097561
+    },
+    {
+      "variant": "none",
+      "text_fields": "-",
+      "n_features": 32,
+      "best_accuracy": 0.85,
+      "best_macro_f1": 0.8503405091640386,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8084451219512194
+    }
+  ],
+  "test_accessed": false,
+  "validation_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv"
+  ],
+  "sources": {
+    "text.py": "9672f22c43e7efc4b541678896e5de1384fead97e85e3bdf20e65309f39ed05a",
+    "encode.py": "f3cbf0923e35c376430343ec8964e95fb6a0c907badc902c17b885f1237395ce",
+    "features.py": "f45bc98505e14e7927bf6e3b87414be462372c19e958f14a855313c6d1df2280",
+    "selection.py": "9632fedc222aef8752fbffb057c7d12beb8b3dd1006db3e597423f4207bb070e",
+    "run.py": "cc13ca99eb00e8d191c66dc534d65454c8f2461346088f0c8df135a16519bb6f"
+  },
+  "train_sha256": "336c0aa1c3202f6f24a1b8b1d9e12a78727e8852e5d126baabbbc6f142761a47",
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

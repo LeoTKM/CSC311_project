@@ -1,0 +1,92 @@
+{
+  "stage": "ablation",
+  "fold_seed": 311,
+  "grid": {
+    "max_depth": [
+      4,
+      null
+    ],
+    "min_samples_leaf": [
+      1,
+      5
+    ],
+    "max_features": [
+      "sqrt"
+    ]
+  },
+  "variants": [
+    {
+      "variant": "all",
+      "text_fields": "food,colour,song,feeling",
+      "n_features": 183,
+      "best_accuracy": 0.9333333333333333,
+      "best_macro_f1": 0.9336601307189542,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8998272357723577
+    },
+    {
+      "variant": "no_song",
+      "text_fields": "food,colour,feeling",
+      "n_features": 150,
+      "best_accuracy": 0.9186991869918699,
+      "best_macro_f1": 0.9178534571723427,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 5}",
+      "mean_accuracy": 0.881930894308943
+    },
+    {
+      "variant": "no_feeling",
+      "text_fields": "food,colour,song",
+      "n_features": 120,
+      "best_accuracy": 0.9416666666666667,
+      "best_macro_f1": 0.9426492039922166,
+      "best_params": "{\"max_depth\": null, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.9019512195121951
+    },
+    {
+      "variant": "no_song_no_feeling",
+      "text_fields": "food,colour",
+      "n_features": 87,
+      "best_accuracy": 0.926829268292683,
+      "best_macro_f1": 0.9262796027501908,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 5}",
+      "mean_accuracy": 0.8765650406504065
+    },
+    {
+      "variant": "food_only",
+      "text_fields": "food",
+      "n_features": 67,
+      "best_accuracy": 0.85,
+      "best_macro_f1": 0.8469212585685026,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 5}",
+      "mean_accuracy": 0.8271747967479677
+    },
+    {
+      "variant": "none",
+      "text_fields": "-",
+      "n_features": 34,
+      "best_accuracy": 0.8666666666666667,
+      "best_macro_f1": 0.8661009847056359,
+      "best_params": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1}",
+      "mean_accuracy": 0.8207113821138213
+    }
+  ],
+  "test_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv",
+    "data/splits/val.csv"
+  ],
+  "sources": {
+    "text.py": "ea67e9764c12f3c1f276ad203587dc8e4a8a4378e911857638ddb20170f88726",
+    "encode.py": "62aaa02f124f4ff4803654bfcbdde2c7cd4bb8d9eb00259aaac74344eba7ad46",
+    "features.py": "9eed46426b2e23fba1944acaec403fa105607e905f38b5bb349f7564e761c786",
+    "selection.py": "88a8c6002ab4f66253b698156061406a0f510a1df068fd3b60affe6b5efbc030",
+    "run.py": "40fa38c818fde141112a062e12d996de172e7a35fa4b593a666051ee10a6fe49"
+  },
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

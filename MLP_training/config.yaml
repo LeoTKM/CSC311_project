@@ -1,0 +1,92 @@
+# MLP (PyTorch) training configuration + Optuna search space.
+# All paths are relative to the repository root (CSC311_project/).
+
+data:
+  # Raw canonical splits (grouped by respondent id, seed 311, 606/132/132 rows).
+  # We read the RAW splits, not data/encoded/*.csv, because the encoded train file
+  # still contains 177 missing structured cells and raw payment amounts. The
+  # team's SurveyPreprocessor (analysis/model_experiments.py) re-encodes, imputes,
+  # adds 7 missingness flags, log1p's payment and standardizes Q1-Q4 + payment,
+  # fitted on training rows only -> 208 features (same as the proposal).
+  train: data/splits/train.csv
+  val: data/splits/val.csv
+  test: data/splits/test.csv        # read ONLY by train_mlp.py --evaluate-test
+  id_column: id
+  label_column: label
+  classes: [Soccer, Baseball, Basketball]   # project-wide class order
+
+model:
+  # 208 inputs -> hidden ReLU layers -> 3 logits. Softmax is applied at inference;
+  # training uses CrossEntropyLoss on raw logits (it applies log-softmax itself).
+  activation: relu
+  output_activation: softmax
+  num_classes: 3
+
+training:
+  device: auto             # cpu is plenty for 606 x 208
+  max_epochs: 300          # each trial trains this long; best epoch is picked from CV curves
+  loss: cross_entropy
+  seed: 311
+
+cv:
+  # Same protocol as the proposal: GroupKFold by respondent, shuffled, seed 311.
+  # Every fold refits the preprocessing on its own training respondents.
+  n_splits: 5
+  seed: 311
+  objective: accuracy      # primary metric in the proposal; mean CV cross-entropy breaks ties
+
+output:
+  dir: MLP_training/out
+
+optuna:
+  n_trials: 60
+  study_name: mlp_torch_cv_accuracy_v1
+  sampler_seed: 311
+  pruner:
+    n_startup_trials: 10
+    n_warmup_steps: 1      # steps are CV folds (0..4)
+
+  search_space:
+    model.hidden_layers:
+      type: categorical
+      # Strings, not nested lists: Optuna stores each layout as one category.
+      # Depth capped at 3: with 606 rows / 202 respondents, the proposal's best
+      # sklearn MLP was ONE layer of 16 units with strong L2 (alpha=10).
+      choices: ["16", "32", "64", "128", "32,16", "64,32", "128,64", "64,32,16", "128,64,32"]
+    model.dropout:
+      type: float
+      low: 0.0
+      high: 0.5
+      step: 0.1
+    training.learning_rate:
+      type: float
+      low: 0.0001
+      high: 0.01
+      log: true
+    training.batch_size:
+      type: categorical
+      choices: [32, 64, 128]
+    training.optimizer:
+      type: categorical
+      choices: [adam, adamw]
+    training.weight_decay:
+      # sklearn alpha=10 with n=606 is roughly weight_decay = alpha/n = 0.0165 here,
+      # so the range brackets the proposal's selected regularization strength.
+      type: float
+      low: 0.00001
+      high: 0.1
+      log: true
+
+# ---------------------------------------------------------------------------
+# Hyperparameters used by train_mlp.py. Written by optuna_search.py
+# (best completed trial); edit by hand if you want to try something else.
+# Keep this section LAST in the file: optuna_search.py replaces it in place.
+final_model:
+  source: "optuna study mlp_torch_cv_accuracy_v1, trial 19 (CV acc 0.9092 +/- 0.0186, macro-F1 0.9089)"
+  hidden_layers: "128"
+  dropout: 0.5
+  learning_rate: 0.00011342488040637891
+  batch_size: 32
+  optimizer: adam
+  weight_decay: 4.790869601049712e-05
+  epochs: 75

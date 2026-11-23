@@ -1,0 +1,6 @@
+,question,column,rows_total,rows_blank,rows_invalid,rows_with_tokens,tokens_total,vocabulary_size,singleton_words,tokens_per_row,top_word,top_word_count
+0,Q8 food and drinks,What foods and drinks do you associate with watching this sport in the place or culture you know best?,606,9,20,595,2766,445,265,4.64873949579832,and,213
+1,Q9 colour,What colour do you associate with this sport?,606,7,8,597,1167,153,85,1.9547738693467336,blue,157
+2,Q10 song,Which song do you associate with this sport?,606,11,66,591,2449,562,337,4.143824027072758,waka,176
+3,Q11 feeling,How do you feel when you watch this sport?,606,7,8,597,2575,599,343,4.313232830820771,excited,178
+4,Q12 willingness to pay,How much would you be willing to pay for a decent seat at a professional competition of this sport?,606,7,13,599,1310,223,86,2.1869782971619367,100,97

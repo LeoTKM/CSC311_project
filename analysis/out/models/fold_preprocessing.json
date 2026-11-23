@@ -1,0 +1,77 @@
+[
+  {
+    "fold": 0,
+    "train_rows": 483,
+    "heldout_rows": 123,
+    "train_groups": 161,
+    "heldout_groups": 41,
+    "features": 208,
+    "payment_mean": 259.41477272727275,
+    "tfidf_terms": {
+      "food": 50,
+      "colour": 20,
+      "song": 50,
+      "feeling": 50
+    }
+  },
+  {
+    "fold": 1,
+    "train_rows": 483,
+    "heldout_rows": 123,
+    "train_groups": 161,
+    "heldout_groups": 41,
+    "features": 208,
+    "payment_mean": 270.5489749430524,
+    "tfidf_terms": {
+      "food": 50,
+      "colour": 20,
+      "song": 50,
+      "feeling": 50
+    }
+  },
+  {
+    "fold": 2,
+    "train_rows": 486,
+    "heldout_rows": 120,
+    "train_groups": 162,
+    "heldout_groups": 40,
+    "features": 208,
+    "payment_mean": 300.40255220417635,
+    "tfidf_terms": {
+      "food": 50,
+      "colour": 20,
+      "song": 50,
+      "feeling": 50
+    }
+  },
+  {
+    "fold": 3,
+    "train_rows": 486,
+    "heldout_rows": 120,
+    "train_groups": 162,
+    "heldout_groups": 40,
+    "features": 208,
+    "payment_mean": 265.64578587699316,
+    "tfidf_terms": {
+      "food": 50,
+      "colour": 20,
+      "song": 50,
+      "feeling": 50
+    }
+  },
+  {
+    "fold": 4,
+    "train_rows": 486,
+    "heldout_rows": 120,
+    "train_groups": 162,
+    "heldout_groups": 40,
+    "features": 208,
+    "payment_mean": 283.14597701149427,
+    "tfidf_terms": {
+      "food": 50,
+      "colour": 20,
+      "song": 50,
+      "feeling": 50
+    }
+  }
+]

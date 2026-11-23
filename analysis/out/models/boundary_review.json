@@ -1,0 +1,42 @@
+[
+  {
+    "family": "softmax",
+    "initial_winner": {
+      "C": 1.0
+    },
+    "extensions": [],
+    "rule": "One step beyond each selected expandable edge, varying one axis at a time; leaf size 1 and unlimited depth are natural boundaries."
+  },
+  {
+    "family": "forest",
+    "initial_winner": {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1
+    },
+    "extensions": [],
+    "rule": "One step beyond each selected expandable edge, varying one axis at a time; leaf size 1 and unlimited depth are natural boundaries."
+  },
+  {
+    "family": "mlp",
+    "initial_winner": {
+      "alpha": 10.0,
+      "hidden_layer_sizes": [
+        16
+      ]
+    },
+    "extensions": [
+      [
+        "alpha",
+        100.0
+      ],
+      [
+        "hidden_layer_sizes",
+        [
+          8
+        ]
+      ]
+    ],
+    "rule": "One step beyond each selected expandable edge, varying one axis at a time; leaf size 1 and unlimited depth are natural boundaries."
+  }
+]

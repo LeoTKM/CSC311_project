@@ -1,0 +1,25 @@
+,feature,cramers_v,eta_squared,kind
+3,Q5 venue - Indoor facility,0.6006526689489439,,indicator
+10,Q6 season - Winter,0.5614500490270518,,indicator
+19,Q7 music type - Hip-hop or rap,0.5227287043767719,,indicator
+16,Q7 music type - Latin,0.5034188316001244,,indicator
+8,Q5 venue - At home or nearby,0.427210468305177,,indicator
+20,Q7 music type - Country,0.3900881264729704,,indicator
+6,Q5 venue - Community recreation facility,0.35581516486152853,,indicator
+1,Q3 injury risk,0.3093036423568336,0.16303086346496298,single
+15,Q7 music type - Electronic or dance,0.25590240513948664,,indicator
+2,Q4 individual brilliance,0.24794866006240474,0.11489593384621652,single
+0,Q2 strategy dependence,0.2465518761229232,0.07233621046211891,single
+5,Q5 venue - School or university facility,0.24585779083149195,,indicator
+22,Q7 music type - No particular type,0.24204040179323638,,indicator
+13,Q6 season - Fall,0.21274365146005758,,indicator
+7,Q5 venue - Private sports facility,0.2105132689483389,,indicator
+9,Q5 venue - Others,0.17773209103364646,,indicator
+17,Q7 music type - Folk or traditional,0.1770783370337862,,indicator
+11,Q6 season - Spring,0.13194988224458032,,indicator
+14,Q7 music type - Pop,0.13030789255405223,,indicator
+4,Q5 venue - Outdoor public space,0.1271112339217953,,indicator
+18,Q7 music type - Classical or jazz,0.12608821894172,,indicator
+21,Q7 music type - Rock,0.05717495807353828,,indicator
+12,Q6 season - Summer,0.03242346006066898,,indicator
+23,Q7 music type - Other,0.014999850590999435,,indicator

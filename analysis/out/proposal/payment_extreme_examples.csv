@@ -1,0 +1,13 @@
+,answer,amount,status,label
+84,$10 000,10000.0,single_amount,Soccer
+63,"$10,000 ",10000.0,single_amount,Soccer
+86,"$5,000 ",5000.0,single_amount,Basketball
+422,5k,5000.0,single_amount,Basketball
+381,$5000 to $1000,3000.0,range_midpoint,Soccer
+85,"$3,000 ",3000.0,single_amount,Baseball
+382,$5000 to $1000,3000.0,range_midpoint,Baseball
+213,"$2000, (have done before)",2000.0,single_amount,Soccer
+5,"$2,000 ",2000.0,single_amount,Basketball
+233,2000,2000.0,single_amount,Basketball
+96,2000 CAD,2000.0,single_amount,Soccer
+429,CAD 1500,1500.0,single_amount,Soccer

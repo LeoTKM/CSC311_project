@@ -1,0 +1,97 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,booktabs,amsmath}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\newcommand{\topic}[1]{\par\smallskip\textbf{#1}\quad}
+\begin{document}
+\begin{center}
+{\Large\bfseries CSC311 Project: PyTorch MLP}\par
+{\small Group: 61936 \quad Members: Eric Lin, Wuqingyi Wang, Qiyu Wang, Wenchu Yang}\par
+\end{center}
+
+\topic{Overview.}
+A multilayer perceptron classifies each survey response as Soccer, Baseball or
+Basketball. Inputs are the 208 features of the proposal (12 questions encoded by
+\texttt{encode\_all.py}, plus 7 missingness flags, median/mode imputation,
+$\log(1+x)$ payment and standardized Q1--Q4/payment), all fitted on training rows only.
+Code: \path{MLP_training/}; submission: \path{MLP_training/submission/}.
+
+\section{Optuna tuning}
+Optuna (TPE sampler, seed 311, median pruner) ran 60 trials. Each trial was scored by
+grouped 5-fold cross-validation on \texttt{train.csv} only (606 rows, 202 respondents,
+\texttt{GroupKFold} by respondent, seed 311), with preprocessing refitted inside every fold.
+Each fold trained for 300 epochs; the epoch count was selected as the epoch with the
+highest mean CV accuracy. Validation and test were not read.
+
+\begin{table}[ht]
+\centering\small
+\caption{Search space and selected values (trial 19).}
+\begin{tabular}{lll}
+\toprule
+Hyperparameter & Range & Selected\\
+\midrule
+Hidden layers & 16 \dots 128, 1--3 layers (9 layouts) & one layer, 128 units\\
+Dropout & 0.0--0.5, step 0.1 & 0.5\\
+Learning rate & $10^{-4}$--$10^{-2}$, log & $1.13\times10^{-4}$\\
+Batch size & 32, 64, 128 & 32\\
+Optimizer & Adam, AdamW & Adam\\
+Weight decay & $10^{-5}$--$10^{-1}$, log & $4.8\times10^{-5}$\\
+Epochs & best epoch of the CV curve & 75\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The selected trial reached 90.92\% CV accuracy. That score is optimistic because it
+was measured on the folds used for tuning. On the forest's 15 grouped folds
+(fold seeds 311--313) the same configuration scores $89.66\pm1.17\%$, which is the
+figure we compare with the other families.
+
+\section{Training}
+The network is $208 \rightarrow 128 \rightarrow 3$ with ReLU, dropout 0.5 and a softmax
+output, trained with cross-entropy loss for the selected 75 epochs (no early stopping
+on validation). We first trained on \texttt{train} and scored \texttt{validation} once.
+Then we refitted on train plus validation (738 rows, 246 respondents) and scored the
+local \texttt{test} split once.
+
+\begin{table}[ht]
+\centering\small
+\caption{Results. Test interval: 95\% bootstrap over respondents.}
+\begin{tabular}{llrr}
+\toprule
+Fitted on & Evaluated on & Accuracy & Macro-F1\\
+\midrule
+train (606) & train & 94.55\% & 0.9455\\
+train (606) & validation (132) & 92.42\% & 0.9238\\
+train + validation (738) & test (132) & \textbf{93.94\%} [88.6, 98.5] & 0.9396\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Test confusion matrix (rows true, columns predicted; Soccer/Baseball/Basketball):
+$\left(\begin{smallmatrix}43&1&0\\4&39&1\\2&0&42\end{smallmatrix}\right)$.
+The most common error is Baseball predicted as Soccer.
+
+\section{Inference on user inputs}
+\texttt{pred.py} imports only the standard library, NumPy and pandas, as required.
+Its function \texttt{predict\_all(filename)} reads a CSV and returns one label per row.
+It rebuilds the full encoder in NumPy: multi-hot answers, TF-IDF with the stored
+vocabulary and IDF weights, payment parsing, imputation, $\log(1+x)$ and scaling.
+The forward pass is $\mathrm{softmax}(\mathrm{ReLU}(xW_0+b_0)W_1+b_1)$. All parameters
+are in \texttt{mlp\_params.npz} (413\,KB).
+
+The NumPy features matched the scikit-learn pipeline to within $10^{-16}$ on every
+train and validation row, and predictions matched PyTorch exactly. Sixty predictions
+take about 0.2\,s.
+
+Running \texttt{python pred.py} with no arguments starts an interactive mode. It asks the
+12 survey questions in the terminal, encodes the answers in the same way, and prints
+one live prediction with class probabilities. For example, a response with ease 3,
+indoor, school and community venues, summer, hip-hop music, ``hot dogs, peanuts, beer'', navy
+blue, and ``take me out to the ball game'' was predicted as Baseball (99.1\%). This mode
+is one line at the end of the file and can be commented out.
+
+\end{document}

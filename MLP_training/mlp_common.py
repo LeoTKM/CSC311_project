@@ -116,6 +116,7 @@ class MLP(nn.Module):
 
     @torch.no_grad()
     def predict_proba(self, x):
+        self.eval()                      # dropout off at inference, always
         return torch.softmax(self.forward(x), dim=1)
 
 
@@ -173,6 +174,7 @@ def train_model(X_tr, y_tr, hp, epochs, seed, device, X_ev=None, y_ev=None):
             curves['eval_loss'].append(m['loss'])
             curves['eval_accuracy'].append(m['accuracy'])
             curves['eval_macro_f1'].append(m['macro_f1'])
+    model.eval()                         # return in inference mode (dropout off)
     return model, curves
 
 

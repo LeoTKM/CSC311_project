@@ -1,0 +1,106 @@
+{
+  "stage": "validation",
+  "rows": 132,
+  "respondents": 44,
+  "params": {
+    "max_depth": 8,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2
+  },
+  "n_estimators": 300,
+  "n_features": 173,
+  "accuracy": 0.9090909090909091,
+  "macro_f1": 0.9082862662399904,
+  "log_loss": 0.4020990053337029,
+  "bootstrap": {
+    "accuracy": {
+      "mean": 0.9089223484848485,
+      "low": 0.8560606060606061,
+      "high": 0.9545454545454546
+    },
+    "macro_f1": {
+      "mean": 0.9079989574543713,
+      "low": 0.8543088951468683,
+      "high": 0.9544242727148615
+    }
+  },
+  "per_class": {
+    "Soccer": {
+      "precision": 0.9487179487179487,
+      "recall": 0.8409090909090909,
+      "f1-score": 0.891566265060241,
+      "support": 44.0
+    },
+    "Baseball": {
+      "precision": 0.9285714285714286,
+      "recall": 0.8863636363636364,
+      "f1-score": 0.9069767441860465,
+      "support": 44.0
+    },
+    "Basketball": {
+      "precision": 0.8627450980392157,
+      "recall": 1.0,
+      "f1-score": 0.9263157894736842,
+      "support": 44.0
+    },
+    "accuracy": 0.9090909090909091,
+    "macro avg": {
+      "precision": 0.913344825109531,
+      "recall": 0.9090909090909092,
+      "f1-score": 0.9082862662399904,
+      "support": 132.0
+    },
+    "weighted avg": {
+      "precision": 0.9133448251095312,
+      "recall": 0.9090909090909091,
+      "f1-score": 0.9082862662399905,
+      "support": 132.0
+    }
+  },
+  "confusion": [
+    [
+      37,
+      3,
+      4
+    ],
+    [
+      2,
+      39,
+      3
+    ],
+    [
+      0,
+      0,
+      44
+    ]
+  ],
+  "classes": [
+    "Baseball",
+    "Basketball",
+    "Soccer"
+  ],
+  "train_accuracy": 0.9405940594059405,
+  "refit_on": "train split only",
+  "test_accessed": false,
+  "validation_accessed": true,
+  "splits_read": [
+    "data/splits/train.csv",
+    "data/splits/val.csv"
+  ],
+  "sources": {
+    "text.py": "9672f22c43e7efc4b541678896e5de1384fead97e85e3bdf20e65309f39ed05a",
+    "encode.py": "f3cbf0923e35c376430343ec8964e95fb6a0c907badc902c17b885f1237395ce",
+    "features.py": "f45bc98505e14e7927bf6e3b87414be462372c19e958f14a855313c6d1df2280",
+    "selection.py": "9632fedc222aef8752fbffb057c7d12beb8b3dd1006db3e597423f4207bb070e",
+    "run.py": "8e7fad044bc3926c5051c25abd87780567d2fdce0850df462787b009989fd241"
+  },
+  "train_sha256": "336c0aa1c3202f6f24a1b8b1d9e12a78727e8852e5d126baabbbc6f142761a47",
+  "val_sha256": "d43c9a213a55e9a251bb22aeecec0c5fd363b1d054cbb8157a860285d85ff9f8",
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

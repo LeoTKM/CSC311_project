@@ -1,0 +1,7 @@
+variant,text_fields,n_features,best_accuracy,best_macro_f1,best_params,mean_accuracy
+all,"food,colour,song,feeling",183,0.9333333333333333,0.9336601307189542,"{""max_depth"": null, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}",0.8998272357723577
+no_song,"food,colour,feeling",150,0.9186991869918699,0.9178534571723427,"{""max_depth"": 4, ""max_features"": ""sqrt"", ""min_samples_leaf"": 5}",0.881930894308943
+no_feeling,"food,colour,song",120,0.9416666666666667,0.9426492039922166,"{""max_depth"": null, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}",0.9019512195121951
+no_song_no_feeling,"food,colour",87,0.926829268292683,0.9262796027501908,"{""max_depth"": 4, ""max_features"": ""sqrt"", ""min_samples_leaf"": 5}",0.8765650406504065
+food_only,food,67,0.85,0.8469212585685026,"{""max_depth"": 4, ""max_features"": ""sqrt"", ""min_samples_leaf"": 5}",0.8271747967479677
+none,-,34,0.8666666666666667,0.8661009847056359,"{""max_depth"": 4, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}",0.8207113821138213

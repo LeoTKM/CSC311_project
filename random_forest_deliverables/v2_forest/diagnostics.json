@@ -1,0 +1,132 @@
+{
+  "stage": "diagnostics",
+  "params": {
+    "max_depth": 8,
+    "max_features": "log2",
+    "min_samples_leaf": 2
+  },
+  "fold_seeds": [
+    311,
+    312,
+    313
+  ],
+  "n_estimators_curve": [
+    {
+      "n_estimators": 100,
+      "accuracy": 0.8993495934959351,
+      "macro_f1": 0.8987674261176876,
+      "log_loss": 0.5416905587891968
+    },
+    {
+      "n_estimators": 200,
+      "accuracy": 0.9042818428184282,
+      "macro_f1": 0.9038788295822386,
+      "log_loss": 0.545760611116475
+    },
+    {
+      "n_estimators": 300,
+      "accuracy": 0.9042818428184282,
+      "macro_f1": 0.9038371886520361,
+      "log_loss": 0.5428077555341566
+    },
+    {
+      "n_estimators": 500,
+      "accuracy": 0.9031842818428186,
+      "macro_f1": 0.9026966472707147,
+      "log_loss": 0.5466102763505164
+    },
+    {
+      "n_estimators": 800,
+      "accuracy": 0.9015718157181573,
+      "macro_f1": 0.9009898754730382,
+      "log_loss": 0.5487299154090591
+    }
+  ],
+  "learning_curve": [
+    {
+      "fraction": 0.25,
+      "rows": 120,
+      "respondents": 40,
+      "accuracy": 0.8960840108401086,
+      "macro_f1": 0.8950913534367203
+    },
+    {
+      "fraction": 0.5,
+      "rows": 241,
+      "respondents": 80,
+      "accuracy": 0.8965718157181574,
+      "macro_f1": 0.8959812346487517
+    },
+    {
+      "fraction": 0.75,
+      "rows": 364,
+      "respondents": 121,
+      "accuracy": 0.902628726287263,
+      "macro_f1": 0.9021281124088163
+    },
+    {
+      "fraction": 1.0,
+      "rows": 484,
+      "respondents": 161,
+      "accuracy": 0.9009756097560976,
+      "macro_f1": 0.9004561351579422
+    }
+  ],
+  "importance_by_block": [
+    {
+      "block": "colour",
+      "columns_per_fold": 20.0,
+      "importance": 0.0673766937669376,
+      "share_of_positive": 0.5421045745933468
+    },
+    {
+      "block": "structured",
+      "columns_per_fold": 27.0,
+      "importance": 0.04056910569105672,
+      "share_of_positive": 0.32641402468274366
+    },
+    {
+      "block": "song",
+      "columns_per_fold": 33.0,
+      "importance": 0.016788617886178765,
+      "share_of_positive": 0.1350791504949629
+    },
+    {
+      "block": "food",
+      "columns_per_fold": 33.0,
+      "importance": 0.002027100271002608,
+      "share_of_positive": 0.016309798962102946
+    },
+    {
+      "block": "missing flags",
+      "columns_per_fold": 7.0,
+      "importance": 0.0,
+      "share_of_positive": 0.0
+    },
+    {
+      "block": "feeling",
+      "columns_per_fold": 63.0,
+      "importance": -0.0024742547425474653,
+      "share_of_positive": -0.01990754873315639
+    }
+  ],
+  "test_accessed": false,
+  "splits_read": [
+    "data/splits/train.csv",
+    "data/splits/val.csv"
+  ],
+  "sources": {
+    "text.py": "ea67e9764c12f3c1f276ad203587dc8e4a8a4378e911857638ddb20170f88726",
+    "encode.py": "62aaa02f124f4ff4803654bfcbdde2c7cd4bb8d9eb00259aaac74344eba7ad46",
+    "features.py": "9eed46426b2e23fba1944acaec403fa105607e905f38b5bb349f7564e761c786",
+    "selection.py": "88a8c6002ab4f66253b698156061406a0f510a1df068fd3b60affe6b5efbc030",
+    "run.py": "619465b2340fa30b98a2712cc637e36f4a57448d79662740274b540b238f1194"
+  },
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

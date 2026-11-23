@@ -1,0 +1,6 @@
+# Python >= 3.10 (tested on 3.13; the project .venv uses 3.12)
+# On top of analysis/requirements.txt (pandas, numpy, scikit-learn, joblib, threadpoolctl, scipy)
+-r ../analysis/requirements.txt
+torch>=2.2
+optuna>=4.0
+pyyaml>=6.0

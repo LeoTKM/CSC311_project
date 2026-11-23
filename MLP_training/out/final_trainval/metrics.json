@@ -1,0 +1,20 @@
+{
+  "trained_on": "train+val",
+  "seed": 311,
+  "epochs": 75,
+  "hyperparameters": {
+    "hidden_layers": "128",
+    "dropout": 0.5,
+    "learning_rate": 0.00011342488040637891,
+    "batch_size": 32,
+    "optimizer": "adam",
+    "weight_decay": 4.790869601049712e-05,
+    "epochs": 75
+  },
+  "final_train_loss": 0.2056341618501397,
+  "fit_metrics": {
+    "loss": 0.18839073181152344,
+    "accuracy": 0.9444444444444444,
+    "macro_f1": 0.9443677179656307
+  }
+}

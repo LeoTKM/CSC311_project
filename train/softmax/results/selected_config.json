@@ -1,0 +1,41 @@
+{
+  "model": "multinomial_softmax_regression",
+  "optimizer": "L-BFGS",
+  "regularization": "L2",
+  "C": 0.3,
+  "tolerance": 0.0001,
+  "max_iterations": 2000,
+  "retry_max_iterations": 10000,
+  "preprocessing": {
+    "name": "word_plus_char_colour_lexicon",
+    "word_caps": [
+      125,
+      45,
+      125,
+      100
+    ],
+    "word_analyzer": "normalized",
+    "char_caps": [
+      100,
+      60,
+      100,
+      80
+    ],
+    "text_weight": 1.0,
+    "fields": [
+      "food",
+      "colour",
+      "song",
+      "feeling"
+    ],
+    "colour_lexicon": true,
+    "coverage_flags": false
+  },
+  "tfidf_min_df": 2,
+  "fold_seeds": [
+    311,
+    312,
+    313
+  ],
+  "folds_per_seed": 5
+}

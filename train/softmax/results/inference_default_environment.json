@@ -1,0 +1,21 @@
+{
+  "batch_rows": 60,
+  "default_numpy_thread_settings": true,
+  "imports_complete_before_timing": true,
+  "includes": "CSV reading, parameter loading, preprocessing and prediction",
+  "empty_batch_passed": true,
+  "unlabelled_input_passed": true,
+  "allowed_imports_checked": true,
+  "timings": {
+    "raw": {
+      "median_seconds": 0.05824455397669226,
+      "max_seconds": 0.11314292001770809,
+      "repeats": 25
+    },
+    "long_text": {
+      "median_seconds": 0.23303024697816,
+      "max_seconds": 0.30991222197189927,
+      "repeats": 25
+    }
+  }
+}

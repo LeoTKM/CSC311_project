@@ -27,9 +27,8 @@ The inference script needs Python 3.10+ and NumPy. Its latency benchmark uses 60
 from training without labels. The Python process and module imports are ready when
 timing begins. The first-call trials clear the in-process parameter cache and time
 CSV reading, parameter loading, preprocessing and prediction. OS file caching is
-left in its normal state. The selected model is fit on train. Validation is model
-comparison data and the local test split is reserved for a separately agreed final
-evaluation protocol.
+left in its normal state. This search workflow fits on train and reports validation metrics. The separate
+refit workflow below uses the saved configuration to evaluate the local test split.
 
 ## Results
 
@@ -66,3 +65,36 @@ candidate comparison.
 A second benchmark with default NumPy thread settings took 0.113 s at most on
 60 raw rows and 0.310 s at most on 60 rows with artificially lengthened text.
 See `results/inference_default_environment.json`.
+
+## Train + validation refit and local test
+
+```sh
+python train/softmax/refit.py --out /path/to/new/softmax-refit
+```
+
+The refit reads the frozen configuration from `results/selected_config.json`.
+With C=0.3 and the feature design fixed, it learns the vocabulary, IDF,
+imputation values, scales and softmax coefficients from 738 train + validation
+responses (246 respondents). It evaluates the canonical local test after
+fitting and verifies that the MLP and random forest prediction archives match
+its respondent IDs and labels row for row. The test has 132 responses from 44
+different respondents.
+
+| Train + validation model | Local test accuracy | Macro-F1 |
+|---|---:|---:|
+| PyTorch MLP | 93.94% (124/132) | 0.9396 |
+| Softmax, C=0.3 | 92.42% (122/132) | 0.9246 |
+| Random forest v1 | 90.15% (119/132) | 0.9022 |
+
+The random forest row is the team's v1 final refit. All three rows are local
+test results. The shared local holdout can inform the team comparison, and the
+course's unseen test is a separate evaluation.
+
+See `results/local_test/test_metrics.json` and
+`results/local_test/test_confusion.csv`. To run the saved refit, place
+`results/local_test/softmax_params.json` next to a copy of `pred.py`. A fresh
+run writes both inference files together. The refit export matched
+scikit-learn on all 132 local-test predictions and on the 738 fitting rows.
+For 60 responses, its slowest first call was 0.125 s across 25 trials with
+Python and imports ready, including CSV reading, parameter loading and
+preprocessing.

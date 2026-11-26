@@ -98,4 +98,4 @@ team changes its final model.
 
 Softmax PR #7 has its own alternative export. Its adjacent parameters are
 train-only; the refit parameters are `train/softmax/results/local_test/softmax_params.json`.
-Do not mix those files with this MLP bundle. PR #7 is not incorporated by this branch.
+Do not mix those files with this MLP bundle. PR #7 is merged into main and included in this branch.

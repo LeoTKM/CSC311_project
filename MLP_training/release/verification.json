@@ -7,7 +7,7 @@
   "prohibited_imports_blocked": true,
   "timing_rows": 60,
   "timing_repeats": 5,
-  "max_seconds_excluding_imports": 0.007720800000242889,
+  "max_seconds_excluding_imports": 0.006755200098268688,
   "numpy": "2.3.5",
   "pandas": "3.0.1",
   "python": "3.12.14",

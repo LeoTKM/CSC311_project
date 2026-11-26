@@ -1,0 +1,18 @@
+{
+  "archived_test_labels_matched": 132,
+  "archived_test_correct": 124,
+  "unlabelled_and_reversed_rows": "passed",
+  "short_headers": "passed",
+  "empty_and_missing_inputs": "passed",
+  "prohibited_imports_blocked": true,
+  "timing_rows": 60,
+  "timing_repeats": 5,
+  "max_seconds_excluding_imports": 0.006755200098268688,
+  "numpy": "2.3.5",
+  "pandas": "3.0.1",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "model_retrained": false,
+  "no_argument_cli": "usage without prompting",
+  "archive_sha256": "eb2a4905ce3934764f9ea34c2ac1dc81255d38f545ce1a3df23b73a4ae05a5a9"
+}

@@ -445,7 +445,8 @@ def stage_validation(args):
                                            output_dict=True, zero_division=0),
         'confusion': confusion_matrix(val['label'], predicted,
                                       labels=selection.CLASSES).tolist(),
-        'classes': list(model.classes_),
+        'classes': list(selection.CLASSES),  # confusion-matrix axis order
+        'probability_classes': list(model.classes_),
         'train_accuracy': float(accuracy_score(train['label'], model.predict(X_fit))),
         'refit_on': 'train split only',
         **provenance(TRAIN_RELATIVE, VAL_RELATIVE),

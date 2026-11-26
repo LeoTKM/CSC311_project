@@ -1,0 +1,147 @@
+{
+  "configuration": {
+    "model": "multinomial_softmax_regression",
+    "optimizer": "L-BFGS",
+    "regularization": "L2",
+    "C": 0.3,
+    "tolerance": 0.0001,
+    "max_iterations": 2000,
+    "retry_max_iterations": 10000,
+    "preprocessing": {
+      "name": "word_plus_char_colour_lexicon",
+      "word_caps": [
+        125,
+        45,
+        125,
+        100
+      ],
+      "word_analyzer": "normalized",
+      "char_caps": [
+        100,
+        60,
+        100,
+        80
+      ],
+      "text_weight": 1.0,
+      "fields": [
+        "food",
+        "colour",
+        "song",
+        "feeling"
+      ],
+      "colour_lexicon": true,
+      "coverage_flags": false
+    },
+    "tfidf_min_df": 2,
+    "fold_seeds": [
+      311,
+      312,
+      313
+    ],
+    "folds_per_seed": 5
+  },
+  "fit": {
+    "split": "train+validation",
+    "rows": 738,
+    "respondents": 246,
+    "features": 790,
+    "accuracy": 0.967479674796748,
+    "macro_f1": 0.9674914872674275,
+    "log_loss": 0.15191149504392162
+  },
+  "local_test": {
+    "rows": 132,
+    "respondents": 44,
+    "correct": 122,
+    "accuracy": 0.9242424242424242,
+    "macro_f1": 0.9246200649568732,
+    "log_loss": 0.19374545547439495,
+    "per_class": {
+      "Soccer": {
+        "precision": 0.8723404255319149,
+        "recall": 0.9318181818181818,
+        "f1-score": 0.9010989010989011,
+        "support": 44.0
+      },
+      "Baseball": {
+        "precision": 0.9534883720930233,
+        "recall": 0.9318181818181818,
+        "f1-score": 0.9425287356321839,
+        "support": 44.0
+      },
+      "Basketball": {
+        "precision": 0.9523809523809523,
+        "recall": 0.9090909090909091,
+        "f1-score": 0.9302325581395349,
+        "support": 44.0
+      },
+      "accuracy": 0.9242424242424242,
+      "macro avg": {
+        "precision": 0.9260699166686303,
+        "recall": 0.9242424242424242,
+        "f1-score": 0.9246200649568732,
+        "support": 132.0
+      },
+      "weighted avg": {
+        "precision": 0.9260699166686301,
+        "recall": 0.9242424242424242,
+        "f1-score": 0.9246200649568733,
+        "support": 132.0
+      }
+    }
+  },
+  "same_split_comparison": {
+    "PyTorch MLP": {
+      "correct": 124,
+      "rows": 132,
+      "accuracy": 0.9393939393939394,
+      "macro_f1": 0.9396066175821459,
+      "prediction_source": "MLP_training/out/test_eval/test_predictions.csv",
+      "respondent_and_label_order_matches": true
+    },
+    "Random forest v1": {
+      "correct": 119,
+      "rows": 132,
+      "accuracy": 0.9015151515151515,
+      "macro_f1": 0.902220328690917,
+      "prediction_source": "random_forest_deliverables/forest_final_v1/test_predictions.csv",
+      "respondent_and_label_order_matches": true
+    },
+    "Softmax": {
+      "correct": 122,
+      "rows": 132,
+      "accuracy": 0.9242424242424242,
+      "macro_f1": 0.9246200649568732
+    }
+  },
+  "optimizer": {
+    "iterations": 35,
+    "retries": 0,
+    "warnings": []
+  },
+  "export": {
+    "rows": 60,
+    "repeats": 25,
+    "includes": "CSV reading, parameter loading, preprocessing and prediction",
+    "first_call_median_seconds": 0.07361676800064743,
+    "first_call_p95_seconds": 0.09956134541425854,
+    "first_call_max_seconds": 0.12486163398716599,
+    "cached_median_seconds": 0.0685257000150159,
+    "under_one_second_all_trials": true,
+    "bundle_bytes": 80557,
+    "parity_rows_train_and_validation": 738,
+    "parity_rows_local_test": 132,
+    "parameter_sha256": "c3707e4c176e01391ebf876b7d958eeff80270a5b4e8e8ef675774755ccebb70"
+  },
+  "source_commit": "4e5c7bcf85bf1dbc83e942b2d348b39900cfd7b3",
+  "python": "3.12.14",
+  "sha256": {
+    "train/softmax/refit.py": "d904ce617a54cec8be30c28c7602a539e2eb96bbbc9e952d0fc977188449bf2d",
+    "train/softmax/train.py": "ffd90d3aab01a04ee5e420d911d1e9933c989249486ea4603a4c2811a2ba5766",
+    "train/softmax/pred.py": "68f6d6ca0526a6f2342038a56fa908fcee8bc99a76173dd5c77c3330e6f90dab",
+    "train/softmax/results/selected_config.json": "313da98adcaecf19275d9771616f2c6c37805c2ca177e98185dab32cfff4403c",
+    "data/splits/train.csv": "8b020bc700831d9dc8848007bd8f683d56d4625f5b3d7f62f08b9ef2c40fa18f",
+    "data/splits/val.csv": "f4af1a4b5b2fdc9ae8d644997cede6cf608ed2cc164a7691db727cea52d758a3",
+    "data/splits/test.csv": "12ad0d936050b1d8d9e791d9177176680ac6d7da9587bbfba2309c69a466c458"
+  }
+}

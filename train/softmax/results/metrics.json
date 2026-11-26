@@ -1,0 +1,166 @@
+{
+  "configuration": {
+    "model": "multinomial_softmax_regression",
+    "optimizer": "L-BFGS",
+    "regularization": "L2",
+    "C": 0.3,
+    "tolerance": 0.0001,
+    "max_iterations": 2000,
+    "retry_max_iterations": 10000,
+    "preprocessing": {
+      "name": "word_plus_char_colour_lexicon",
+      "word_caps": [
+        125,
+        45,
+        125,
+        100
+      ],
+      "word_analyzer": "normalized",
+      "char_caps": [
+        100,
+        60,
+        100,
+        80
+      ],
+      "text_weight": 1.0,
+      "fields": [
+        "food",
+        "colour",
+        "song",
+        "feeling"
+      ],
+      "colour_lexicon": true,
+      "coverage_flags": false
+    },
+    "tfidf_min_df": 2,
+    "fold_seeds": [
+      311,
+      312,
+      313
+    ],
+    "folds_per_seed": 5
+  },
+  "search_candidates": 60,
+  "search_fits": 900,
+  "selected_cv": {
+    "stage": "ablation",
+    "representation": "word_plus_char_colour_lexicon",
+    "C": 0.3,
+    "cv_accuracy": 0.9075609756097562,
+    "cv_macro_f1": 0.9073613259558087,
+    "cv_log_loss": 0.2682651210154244,
+    "cv_accuracy_sd": 0.025858031829036798,
+    "train_accuracy": 0.9663105249256617,
+    "mean_features": 789.7333333333333
+  },
+  "baseline_cv": {
+    "stage": "regularization",
+    "representation": "baseline",
+    "C": 1.0,
+    "cv_accuracy": 0.8955013550135501,
+    "cv_macro_f1": 0.8952407513626055,
+    "cv_log_loss": 0.2853972611782435,
+    "cv_accuracy_sd": 0.02587339487779221,
+    "train_accuracy": 0.9697484003442135,
+    "mean_features": 208.0
+  },
+  "nested_cv": {
+    "selected": {
+      "accuracy": 0.9042904290429042,
+      "macro_f1": 0.9039368401398571
+    },
+    "baseline": {
+      "accuracy": 0.8927392739273927,
+      "macro_f1": 0.8926214456174413
+    }
+  },
+  "nested_paired_accuracy_delta": 0.01155115511551155,
+  "validation": {
+    "accuracy": 0.9166666666666666,
+    "macro_f1": 0.9161468285465112,
+    "log_loss": 0.2501685557922207,
+    "correct": 121,
+    "rows": 132,
+    "per_class": {
+      "Soccer": {
+        "precision": 0.926829268292683,
+        "recall": 0.8636363636363636,
+        "f1-score": 0.8941176470588236,
+        "support": 44.0
+      },
+      "Baseball": {
+        "precision": 0.9302325581395349,
+        "recall": 0.9090909090909091,
+        "f1-score": 0.9195402298850575,
+        "support": 44.0
+      },
+      "Basketball": {
+        "precision": 0.8958333333333334,
+        "recall": 0.9772727272727273,
+        "f1-score": 0.9347826086956522,
+        "support": 44.0
+      },
+      "accuracy": 0.9166666666666666,
+      "macro avg": {
+        "precision": 0.9176317199218503,
+        "recall": 0.9166666666666666,
+        "f1-score": 0.9161468285465112,
+        "support": 132.0
+      },
+      "weighted avg": {
+        "precision": 0.9176317199218504,
+        "recall": 0.9166666666666666,
+        "f1-score": 0.916146828546511,
+        "support": 132.0
+      }
+    }
+  },
+  "baseline_validation": {
+    "accuracy": 0.9090909090909091,
+    "macro_f1": 0.9088684638003001,
+    "log_loss": 0.24730697728238735
+  },
+  "train": {
+    "accuracy": 0.966996699669967,
+    "macro_f1": 0.9670726876609229,
+    "log_loss": 0.15639554792262744
+  },
+  "features": 790,
+  "optimizer_iterations": 34,
+  "optimizer_retries": 0,
+  "cv_optimizer_retries": 0,
+  "baseline_archive_prediction_differences": 0,
+  "latency": {
+    "rows": 60,
+    "repeats": 25,
+    "includes": "CSV reading, parameter loading, preprocessing and prediction",
+    "first_call_median_seconds": 0.06487699900753796,
+    "first_call_p95_seconds": 0.08437711019068955,
+    "first_call_max_seconds": 0.08916338899871334,
+    "cached_median_seconds": 0.05981986096594483,
+    "under_one_second_all_trials": true,
+    "bundle_bytes": 80486,
+    "parity_rows_train_and_validation": 738
+  },
+  "local_test_accessed": false,
+  "fit_split": "train",
+  "python": "3.12.14",
+  "machine": "x86_64",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "source_commit": "302241b6ab9538ea467e293ad2bc2b78a1401e3f",
+  "sha256": {
+    "train/softmax/pred.py": "68f6d6ca0526a6f2342038a56fa908fcee8bc99a76173dd5c77c3330e6f90dab",
+    "train/softmax/train.py": "ffd90d3aab01a04ee5e420d911d1e9933c989249486ea4603a4c2811a2ba5766",
+    "data/splits/train.csv": "8b020bc700831d9dc8848007bd8f683d56d4625f5b3d7f62f08b9ef2c40fa18f",
+    "data/splits/val.csv": "f4af1a4b5b2fdc9ae8d644997cede6cf608ed2cc164a7691db727cea52d758a3",
+    "analysis/model_experiments.py": "1aefad2c5a2b25bc33fd6ac0556b6a95106c301a487b6473b4999d6611e9d6a8",
+    "data_preprocessing/encode_all.py": "b071b13732cc0477d7a47c39cf28ee7bc6189297994cf0448669468723971494"
+  }
+}

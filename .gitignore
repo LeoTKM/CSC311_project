@@ -175,3 +175,6 @@ events.out.tfevents.*
 # *.parquet
 
 .venv/
+
+# pdf
+*.tex

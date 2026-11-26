@@ -1,0 +1,28 @@
+{
+  "model": "MLP",
+  "fit_split": "train+validation",
+  "fit_rows": 738,
+  "weights_changed": false,
+  "total_uncompressed_bytes": 423400,
+  "files": {
+    "pred.py": {
+      "sha256": "71d528c71602a63b7374ff8eec19d1efb90d9ce6fd6b4acef36ad92672c10847",
+      "bytes": 10470
+    },
+    "mlp_params.npz": {
+      "sha256": "c812d075ebac023bac3c596c418b0462438acc909c8b75723e4d190466f7cc12",
+      "bytes": 412930
+    }
+  },
+  "archive_sha256": "eb2a4905ce3934764f9ea34c2ac1dc81255d38f545ce1a3df23b73a4ae05a5a9",
+  "imports": [
+    "json",
+    "math",
+    "numpy",
+    "os",
+    "pandas",
+    "re",
+    "sys"
+  ],
+  "minimum_python": "3.10"
+}

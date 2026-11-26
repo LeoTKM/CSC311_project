@@ -175,3 +175,8 @@ events.out.tfevents.*
 # *.parquet
 
 .venv/
+# Share compact MLP tuning evidence; keep databases and other trial artifacts ignored.
+!MLP_training/out/optuna/
+MLP_training/out/optuna/*
+!MLP_training/out/optuna/trials.csv
+!MLP_training/out/optuna/best_params.json

@@ -75,9 +75,9 @@
     ]
   ],
   "classes": [
+    "Soccer",
     "Baseball",
-    "Basketball",
-    "Soccer"
+    "Basketball"
   ],
   "train_accuracy": 0.9356435643564357,
   "test_accessed": false,
@@ -98,5 +98,11 @@
     "numpy": "2.5.4",
     "scikit-learn": "1.9.1",
     "joblib": "1.6.0"
-  }
+  },
+  "probability_classes": [
+    "Baseball",
+    "Basketball",
+    "Soccer"
+  ],
+  "metadata_correction": "Corrected confusion-matrix axis labels; metrics and predictions unchanged. Source hashes describe the original training run."
 }

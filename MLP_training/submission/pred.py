@@ -1,18 +1,9 @@
-"""CSC311 prediction script: sport classifier (Soccer / Baseball / Basketball).
+"""Section 3.4 MLP inference: standard library, NumPy and pandas only.
 
-Imports only the Python standard library, numpy and pandas (course requirement).
-Needs mlp_params.npz in the same folder as this file.
-
-    from pred import predict_all
-    predictions = predict_all('test.csv')     # list like ['Soccer', 'Baseball', ...]
-
-Model: 208 features -> Linear(128) -> ReLU -> Linear(3) -> softmax, trained in PyTorch and
-exported to mlp_params.npz. Every preprocessing value (TF-IDF vocabulary/idf, fill values,
-payment mean, scaler) was learned from training data only and is read from that file.
-
-Run from a terminal:
-    python pred.py some.csv        # predict a CSV (prints accuracy if it has a label column)
-    python pred.py                 # answer the 12 survey questions, get one live prediction
+Keep mlp_params.npz next to this file. Parameters and preprocessing were fitted
+on train + validation (738 rows). No fitting or downloads occur at inference.
+predict_all(filename) returns one sport label per CSV row in input order.
+Run: python pred.py unlabelled.csv
 """
 import json
 import math
@@ -263,48 +254,7 @@ def predict_all(filename):
     return predictions
 
 
-# ----------------------------------------------------------------------------- live test
-def interactive_predict():
-    """Ask the 12 survey questions in the terminal and predict that single response."""
-    print('\nAnswer about ONE sport (press Enter to skip a question).\n')
-    answer = {}
-    answer[EASE_COLUMN] = input('Q1  Ease of starting, 0 (very hard) - 10 (very easy): ')
-    likert = ' [strongly disagree / disagree / neutral / agree / strongly agree]: '
-    for column in AGREEMENT_COLUMNS:
-        answer[column] = input(f'    {column}{likert}')
-    for column, choices in SCHEMA.items():
-        print(f'\n    {column}')
-        for k, (option, _) in enumerate(choices, 1):
-            print(f'      {k}. {option}')
-        picked = input('    Numbers, comma-separated (e.g. 1,3): ')
-        names = []
-        for part in picked.split(','):
-            part = part.strip()
-            if part.isdigit() and 1 <= int(part) <= len(choices):
-                names.append(choices[int(part) - 1][0])
-        answer[column] = ','.join(names)
-    print()
-    for column in TEXT.values():
-        answer[column] = input(f'    {column}\n    > ')
-    answer[PAYMENT] = input(f'    {PAYMENT}\n    > ')
-
-    labels, probs = predict_df(pd.DataFrame([answer]))
-    classes = [str(c) for c in load_params()['classes']]
-    print(f'\nPrediction: {labels[0]}')
-    for c, pr in sorted(zip(classes, probs[0]), key=lambda t: -t[1]):
-        print(f'  {c:<11} {pr:6.1%}')
-
-
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        # --- CSV inference -----------------------------------------------------------
-        preds = predict_all(sys.argv[1])
-        truth = pd.read_csv(sys.argv[1], dtype=str, keep_default_na=False, encoding='utf-8-sig')
-        if 'label' in truth.columns:
-            acc = np.mean(np.array(preds) == truth['label'].to_numpy())
-            print(f'{len(preds)} predictions, accuracy {acc:.4f}')
-        else:
-            print('\n'.join(preds))
-    else:
-        # --- Live terminal inference (comment out this line to disable) --------------
-        interactive_predict()
+    if len(sys.argv) != 2:
+        raise SystemExit('Usage: python pred.py INPUT.csv')
+    print('\n'.join(predict_all(sys.argv[1])))
